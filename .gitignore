@@ -1,0 +1,5 @@
+#Fichiers avec logins de BDD
+.env
+
+#Fichiers potentiels d'IDE
+.vscode/
