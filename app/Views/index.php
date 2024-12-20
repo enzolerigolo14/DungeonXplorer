@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DungeonXplorer</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/DungeonXplorer/public/css/styles.css">
 </head>
 <body>
 
@@ -28,15 +28,15 @@
             </form>
         </div>
     </div>
-    <script src="script_index.js"></script>
+    <script src="/DungeonXplorer/public/js/script_index.js"></script>
 </body>
 </html>
 
 <?php if (!isset($_POST['username']) || (!isset($_POST['password']))) {
-        echo ' Le formulaire doit être complété avant d\'être soumis';
+        // echo ' Le formulaire doit être complété avant d\'être soumis';
         // Puis je vérifie si elles ne sont pas vides
     } elseif ($_POST['username'] === "" || empty($_POST['password'])) {
-        echo ' Les données du formulaires ne doivent pas être vides';
+        // echo ' Les données du formulaires ne doivent pas être vides';
         // Enfin je les affiche
     } else {
         // Nettoyage des données passées en Post
@@ -46,4 +46,35 @@
         echo '
         <h1> Bienvenue à toi </h1>' . $username . ' ' . $password;
     }
+
+    require_once 'Views/chapitres.php';
+require_once 'Controllers/ChapterController.php';
+require_once 'Models/ClassesDuProf/Chapter.php';
+
+// Connexion à la base de données
+try {
+    $db = new PDO('mysql:host=localhost;dbname=dungeonxplorer;charset=utf8', 'root', '');
+} catch (Exception $e) {
+    die('Erreur : ' . $e->getMessage());
+}
+
+// Instanciation du modèle et du contrôleur
+$chapitresModel = new Chapter($db);
+$controller = new ChapterController($chapitresModel);
+
+// Gestion des actions
+if (isset($_GET['action'])) {
+    if ($_GET['action'] === 'login') {
+        $controller->login();
+    } elseif ($_GET['action'] === 'viewChapter' && isset($_GET['id'])) {
+        // Affichage futur d'un chapitre individuel
+    } else {
+        echo "Action non reconnue.";
+    }
+} else {
+    // Par défaut, affiche la page d'accueil ou une liste des chapitres
+    $controller->showChapters();
+}
+
+
     ?>

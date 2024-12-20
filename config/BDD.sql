@@ -4,6 +4,7 @@ CREATE TABLE `Class` (
   `description` TEXT,
   `base_pv` INT NOT NULL,
   `base_mana` INT NOT NULL,
+  `base_armor` INT NOT NULL,
   `strength` INT NOT NULL,
   `initiative` INT NOT NULL,
   `max_items` INT NOT NULL,
@@ -40,7 +41,9 @@ CREATE TABLE `Monster` (
   `strength` INT NOT NULL,
   `attack` TEXT,
   `loot_id` INT,
-  `xp` INT NOT NULL
+  `xp` INT NOT NULL,
+  `armor` INT
+  
 );
 
 CREATE TABLE `Hero` (
@@ -57,7 +60,6 @@ CREATE TABLE `Hero` (
   `armor` VARCHAR(50),
   `primary_weapon` VARCHAR(50),
   `secondary_weapon` VARCHAR(50),
-  `shield` VARCHAR(50),
   `spell_id` int,
   `xp` INT NOT NULL,
   `current_level` INT DEFAULT 1
@@ -65,6 +67,7 @@ CREATE TABLE `Hero` (
 
 CREATE TABLE `Level` (
   `id` INT PRIMARY KEY AUTO_INCREMENT,
+  `class_id` INT,
   `class_id` INT,
   `level` INT NOT NULL,
   `required_xp` INT NOT NULL,
@@ -131,14 +134,12 @@ CREATE TABLE `Weapons` (
   `item_id` int NOT NULL,
   `slot` int NOT NULL,
   `stat_attaque` int NOT NULL,
-  `stat_def` int NOT NULL
+  `stat_bonus` int NOT NULL
 );
 
 ALTER TABLE `Class` ADD FOREIGN KEY (`secondary_weapon_default`) REFERENCES `Weapons` (`id`);
 
 ALTER TABLE `Class` ADD FOREIGN KEY (`primary_weapon_default`) REFERENCES `Weapons` (`id`);
-
-ALTER TABLE `Hero` ADD FOREIGN KEY (`shield`) REFERENCES `Weapons` (`id`);
 
 ALTER TABLE `Hero` ADD FOREIGN KEY (`secondary_weapon`) REFERENCES `Weapons` (`id`);
 
