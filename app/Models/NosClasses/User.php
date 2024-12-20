@@ -1,9 +1,9 @@
 <?php
-class Spell {
+class TypeBonus {
     private $id;
-    private $name;
-    private $manaRequired;
-    private $damage;
+    private $nom;
+    private $mdp;
+    private $admin;
 
     public function hydrate(array $donnes){
         foreach($donnes as $key => $value){
@@ -18,25 +18,24 @@ class Spell {
             }
         }
     }
-
     // Setter pour $id
     public function setId($id) {
         $this->id = $id;
     }
 
-    // Setter pour $name
-    public function setName($name) {
-        $this->name = $name;
+    // Setter pour $nom
+    public function setNom($nom) {
+        $this->nom = $nom;
     }
 
-    // Setter pour $manaRequired
-    public function setManaRequired($manaRequired) {
-        $this->manaRequired = $manaRequired;
+    // Setter pour $mdp
+    public function setMdp($mdp) {
+        $this->mdp = $mdp;
     }
 
-    // Setter pour $damage
-    public function setDamage($damage) {
-        $this->damage = $damage;
+    // Setter pour $admin
+    public function setAdmin($admin) {
+        $this->admin = $admin;
     }
 }
 ?>

@@ -1,9 +1,9 @@
 <?php
-class Spell {
+class Links{
     private $id;
-    private $name;
-    private $manaRequired;
-    private $damage;
+    private $chapter_id;
+    private $next_chapter_id;
+    private $description;
 
     public function hydrate(array $donnes){
         foreach($donnes as $key => $value){
@@ -18,25 +18,25 @@ class Spell {
             }
         }
     }
-
-    // Setter pour $id
+    // Setter pour l'id
     public function setId($id) {
         $this->id = $id;
     }
 
-    // Setter pour $name
-    public function setName($name) {
-        $this->name = $name;
+    // Setter pour le chapter_id
+    public function setChapterId($chapter_id) {
+        $this->chapter_id = $chapter_id;
     }
 
-    // Setter pour $manaRequired
-    public function setManaRequired($manaRequired) {
-        $this->manaRequired = $manaRequired;
+    // Setter pour le next_chapter_id
+    public function setNextChapterId($next_chapter_id) {
+        $this->next_chapter_id = $next_chapter_id;
     }
 
-    // Setter pour $damage
-    public function setDamage($damage) {
-        $this->damage = $damage;
+    // Setter pour la description
+    public function setDescription($description) {
+        $this->description = $description;
     }
 }
+
 ?>

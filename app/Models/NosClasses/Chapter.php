@@ -1,9 +1,9 @@
 <?php
-class Spell {
+class Chapter{
     private $id;
-    private $name;
-    private $manaRequired;
-    private $damage;
+    private $content;
+    private $image;
+    private $treasure_id;
 
     public function hydrate(array $donnes){
         foreach($donnes as $key => $value){
@@ -19,24 +19,28 @@ class Spell {
         }
     }
 
-    // Setter pour $id
+    // Setter pour l'id
     public function setId($id) {
         $this->id = $id;
     }
 
-    // Setter pour $name
-    public function setName($name) {
-        $this->name = $name;
+    // Setter pour le contenu
+    public function setContent($content) {
+        $this->content = $content;
     }
 
-    // Setter pour $manaRequired
-    public function setManaRequired($manaRequired) {
-        $this->manaRequired = $manaRequired;
+    // Setter pour l'image
+    public function setImage($image) {
+        $this->image = $image;
     }
 
-    // Setter pour $damage
-    public function setDamage($damage) {
-        $this->damage = $damage;
+    // Setter pour le treasure_id
+    public function setTreasureId($treasure_id) {
+        $this->treasure_id = $treasure_id;
     }
+
+
+
 }
+
 ?>

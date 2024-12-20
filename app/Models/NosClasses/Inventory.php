@@ -1,5 +1,8 @@
 <?php
-class Guerrier extends Classe{
+class Inventory{
+    private $id;
+    private $hero_id;
+    private $item_id;
     
     public function hydrate(array $donnes){
         foreach($donnes as $key => $value){
@@ -13,6 +16,20 @@ class Guerrier extends Classe{
                 echo 'Ca existe pas : Nom méthode : '.$method.'('.$value.')<br>';
             }
         }
+    }
+    // Setter pour l'id
+    public function setId($id) {
+        $this->id = $id;
+    }
+
+    // Setter pour le hero_id
+    public function setHeroId($hero_id) {
+        $this->hero_id = $hero_id;
+    }
+
+    // Setter pour le item_id
+    public function setItemId($item_id) {
+        $this->item_id = $item_id;
     }
 }
 

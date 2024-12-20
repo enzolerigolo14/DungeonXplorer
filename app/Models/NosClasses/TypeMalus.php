@@ -1,6 +1,9 @@
 <?php
-class Guerrier extends Classe{
-    
+class TypeBonus {
+    private $id;
+    private $libelle;
+    private $description;
+
     public function hydrate(array $donnes){
         foreach($donnes as $key => $value){
             $method = 'set'.ucfirst($key);
@@ -14,6 +17,20 @@ class Guerrier extends Classe{
             }
         }
     }
-}
 
+    // Setter pour $id
+    public function setId($id) {
+        $this->id = $id;
+    }
+
+    // Setter pour $libelle
+    public function setLibelle($libelle) {
+        $this->libelle = $libelle;
+    }
+
+    // Setter pour $description
+    public function setDescription($description) {
+        $this->description = $description;
+    }
+}
 ?>

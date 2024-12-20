@@ -1,10 +1,12 @@
 <?php
-class Spell {
+class Weapon {
     private $id;
     private $name;
-    private $manaRequired;
-    private $damage;
-
+    private $item_id;
+    private $slot;
+    private $stat_attaque;
+    private $stat_bonus;
+    
     public function hydrate(array $donnes){
         foreach($donnes as $key => $value){
             $method = 'set'.ucfirst($key);
@@ -29,14 +31,24 @@ class Spell {
         $this->name = $name;
     }
 
-    // Setter pour $manaRequired
-    public function setManaRequired($manaRequired) {
-        $this->manaRequired = $manaRequired;
+    // Setter pour $item_id
+    public function setItemId($item_id) {
+        $this->item_id = $item_id;
     }
 
-    // Setter pour $damage
-    public function setDamage($damage) {
-        $this->damage = $damage;
+    // Setter pour $slot
+    public function setSlot($slot) {
+        $this->slot = $slot;
+    }
+
+    // Setter pour $stat_attaque
+    public function setStatAttaque($stat_attaque) {
+        $this->stat_attaque = $stat_attaque;
+    }
+
+    // Setter pour $stat_bonus
+    public function setStatBonus($stat_bonus) {
+        $this->stat_bonus = $stat_bonus;
     }
 }
 ?>

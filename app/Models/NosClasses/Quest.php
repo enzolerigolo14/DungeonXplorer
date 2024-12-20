@@ -1,6 +1,9 @@
 <?php
-class Guerrier extends Classe{
-    
+class Quest{
+    private $id;
+    private $hero_id;
+    private $chapter_id;
+
     public function hydrate(array $donnes){
         foreach($donnes as $key => $value){
             $method = 'set'.ucfirst($key);
@@ -13,6 +16,21 @@ class Guerrier extends Classe{
                 echo 'Ca existe pas : Nom méthode : '.$method.'('.$value.')<br>';
             }
         }
+    }
+
+    // Setter pour l'id
+    public function setId($id) {
+        $this->id = $id;
+    }
+
+    // Setter pour le hero_id
+    public function setHeroId($hero_id) {
+        $this->hero_id = $hero_id;
+    }
+
+    // Setter pour le chapter_id
+    public function setChapterId($chapter_id) {
+        $this->chapter_id = $chapter_id;
     }
 }
 
