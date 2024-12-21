@@ -1,4 +1,5 @@
 <?php
+
 class Hero {
     private $id;
     private $name;
@@ -30,84 +31,54 @@ class Hero {
             }
         }
     }
-    // Setter pour $id
-    public function setId($id) {
-        $this->id = $id;
-    }
 
-    // Setter pour $name
-    public function setName($name) {
-        $this->name = $name;
-    }
+    // Setter for $id
+    public function setId($id) { $this->id = $id; }
 
-    // Setter pour $class_id
-    public function setClassId($class_id) {
-        $this->class_id = $class_id;
-    }
+    // Setter for $name
+    public function setName($name) { $this->name = $name; }
 
-    // Setter pour $user_id
-    public function setUserId($user_id) {
-        $this->user_id = $user_id;
-    }
+    // Setter for $class_id
+    public function setClassId($class_id) { $this->class_id = $class_id; }
 
-    // Setter pour $link_image
-    public function setLinkImage($link_image) {
-        $this->link_image = $link_image;
-    }
+    // Setter for $user_id
+    public function setUserId($user_id) { $this->user_id = $user_id; }
 
-    // Setter pour $biography
-    public function setBiography($biography) {
-        $this->biography = $biography;
-    }
+    // Setter for $link_image
+    public function setLinkImage($link_image) { $this->link_image = $link_image; }
 
-    // Setter pour $pv
-    public function setPv($pv) {
-        $this->pv = $pv;
-    }
+    // Setter for $biography
+    public function setBiography($biography) { $this->biography = $biography; }
 
-    // Setter pour $mana
-    public function setMana($mana) {
-        $this->mana = $mana;
-    }
+    // Setter for $pv
+    public function setPv($pv) { $this->pv = $pv; }
 
-    // Setter pour $strength
-    public function setStrength($strength) {
-        $this->strength = $strength;
-    }
+    // Setter for $mana
+    public function setMana($mana) { $this->mana = $mana; }
 
-    // Setter pour $initiative
-    public function setInitiative($initiative) {
-        $this->initiative = $initiative;
-    }
+    // Setter for $strength
+    public function setStrength($strength) { $this->strength = $strength; }
 
-    // Setter pour $armor
-    public function setArmor($armor) {
-        $this->armor = $armor;
-    }
+    // Setter for $initiative
+    public function setInitiative($initiative) { $this->initiative = $initiative; }
 
-    // Setter pour $primary_weapon
-    public function setPrimaryWeapon($primary_weapon) {
-        $this->primary_weapon = $primary_weapon;
-    }
+    // Setter for $armor
+    public function setArmor($armor) { $this->armor = $armor; }
 
-    // Setter pour $secondary_item_id
-    public function setSecondaryItemId($secondary_item_id) {
-        $this->secondary_item_id = $secondary_item_id;
-    }
+    // Setter for $primary_weapon
+    public function setPrimaryWeapon($primary_weapon) { $this->primary_weapon = $primary_weapon; }
 
-    // Setter pour $spell_id
-    public function setSpellId($spell_id) {
-        $this->spell_id = $spell_id;
-    }
+    // Setter for $secondary_item_id
+    public function setSecondaryItemId($secondary_item_id) { $this->secondary_item_id = $secondary_item_id; }
 
-    // Setter pour $xp
-    public function setXp($xp) {
-        $this->xp = $xp;
-    }
+    // Setter for $spell_id
+    public function setSpellId($spell_id) { $this->spell_id = $spell_id; }
 
-    // Setter pour $current_level
-    public function setCurrentLevel($current_level) {
-        $this->current_level = $current_level;
-    }
+    // Setter for $xp
+    public function setXp($xp) { $this->xp = $xp; }
+
+    // Setter for $current_level
+    public function setCurrentLevel($current_level) { $this->current_level = $current_level; }
+
 }
 ?>

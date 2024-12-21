@@ -7,35 +7,33 @@ require_once 'models/Chapter.php';
 class ChapterController
 {
     private $chapters = [];
-    private $chapitresModel;
+    
 
 
-    public function __construct($chapitresModel)
+    public function __construct()
     {
-        // Exemple de chapitres avec des images
-        // $this->chapters[] = new Chapter(
-        //     1,
-        //     "La Forêt Enchantée",
-        //     "Vous vous trouvez dans une forêt sombre et enchantée. Deux chemins se présentent à vous.",
-        //     "images/forêt.jpg", // Chemin vers l'image
-        //     [
-        //         ["text" => "Aller à gauche", "chapter" => 2],
-        //         ["text" => "Aller à droite", "chapter" => 3]
-        //     ]
-        // );
+        Exemple de chapitres avec des images
+        $this->chapters[] = new Chapter(
+            1,
+            "La Forêt Enchantée",
+            "Vous vous trouvez dans une forêt sombre et enchantée. Deux chemins se présentent à vous.",
+            "images/forêt.jpg", // Chemin vers l'image
+            [
+                ["text" => "Aller à gauche", "chapter" => 2],
+                ["text" => "Aller à droite", "chapter" => 3]
+            ]
+        );
 
-        // $this->chapters[] = new Chapter(
-        //     2,
-        //     "Le Lac Mystérieux",
-        //     "Vous arrivez à un lac aux eaux limpides. Une créature vous observe.",
-        //     "images/lac.jpg", // Chemin vers l'image
-        //     [
-        //         ["text" => "Nager dans le lac", "chapter" => 4],
-        //         ["text" => "Faire demi-tour", "chapter" => 1]
-        //     ]
-        // );
-
-        $this->chapitresModel = $chapitresModel;
+        $this->chapters[] = new Chapter(
+            2,
+            "Le Lac Mystérieux",
+            "Vous arrivez à un lac aux eaux limpides. Une créature vous observe.",
+            "images/lac.jpg", // Chemin vers l'image
+            [
+                ["text" => "Nager dans le lac", "chapter" => 4],
+                ["text" => "Faire demi-tour", "chapter" => 1]
+            ]
+        );
 
     }
 
@@ -62,27 +60,5 @@ class ChapterController
         return null; // Chapitre non trouvé
     }
 
-    public function login()
-    {
-        if (!empty($_POST['username']) && !empty($_POST['password'])) {
-            // Vérifie les identifiants ici (à compléter selon ta logique).
-            $username = htmlspecialchars($_POST['username']);
-            $password = htmlspecialchars($_POST['password']);
-
-            // Simule une validation réussie
-            if ($username === "admin" && $password === "admin") {
-                $this->showChapters();
-            } else {
-                echo "Identifiants incorrects.";
-            }
-        } else {
-            echo "Merci de remplir tous les champs.";
-        }
-    }
-
-    public function showChapters()
-    {
-        $chapters = $this->chapitresModel->getAllChapters();
-        require_once __DIR__ . '/../views/chapitres.php';
-    }
+  
 }
