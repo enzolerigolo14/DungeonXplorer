@@ -1,13 +1,13 @@
 <?php
-// Informations de connexion
-$mysql_user   = 'dx12';          // Ton utilisateur MySQL
-$mysql_pass   = 'oovohZe4oNg9Eing'; // Ton mot de passe MySQL
-$mysql_db     = 'dx12_bd';       // Le nom de ta base de données
-$mysql_server = 'localhost';     // L'adresse du serveur MySQL
+
+$dbHost = $env['DB_HOST'];
+$dbName = $env['DB_NAME'];
+$dbUser = $env['DB_USER'];
+$dbPassword = $env['DB_PASSWORD'];
 
 try {
     // Créer la connexion PDO avec tes paramètres
-    $pdo = new PDO("mysql:host=$mysql_server;dbname=$mysql_db;charset=utf8", $mysql_user, $mysql_pass);
+    $pdo = new PDO("mysql:host=$dbHost;dbname=$dbName;charset=utf8", $dbUser, $dbPassword);
     // Configurer PDO pour lever des exceptions en cas d'erreur
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {

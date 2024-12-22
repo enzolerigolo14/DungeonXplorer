@@ -1,12 +1,4 @@
 <?php
-
-// core/Database.php
-
-$mysql_user   = "dx12";
-$mysql_pass   = "oovohZe4oNg9Eing";
-$mysql_db     = "dx12_bd";
-$mysql_server = "localhost";
-
 // Chemin vers le fichier .env
 $envFile = __DIR__ . '/../.env';
 

@@ -1,2 +1,5 @@
+#Fichier .env contenant les identifiants de la BDD
+#.env
+
 #Fichiers potentiels d'IDE
 .vscode/
