@@ -27,7 +27,7 @@ class ChapterController
             2,
             "Le Lac Mystérieux",
             "Vous arrivez à un lac aux eaux limpides. Une créature vous observe.",
-            "../../public/images/fond_ruine.jpg", // Chemin vers l'image
+            "../public/images/fond_ruine.jpg", // Chemin vers l'image
             [
                 ["text" => "Nager dans le lac", "chapter" => 4],
                 ["text" => "Faire demi-tour", "chapter" => 1]

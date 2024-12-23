@@ -26,8 +26,8 @@
             $requete = $client->prepare("SELECT * from user where nom = '$username'");
             $requete->execute();
             $result = $requete->fetch();
-            if ($result && $result['mdp'] === $_POST["password"]) { // Vérification du mot de passe (non sécurisé sans hash)
-
+            if ($result && password_verify($password, $result['mdp'])) { // Vérification du mot de passe (non sécurisé sans hash)
+                header("Location: /DungeonXplorer/chapter_view/2");
                 // Redirection ou traitement ici
             } else {
                 $error = "Nom d'utilisateur ou mot de passe incorrect.";
@@ -39,46 +39,7 @@
         }
     }
 ?>
-<?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    if(isset($_POST["newUsername"]) && isset($_POST["newPassword"]) && isset($_POST["confirmPassword"])){
-        $newUsername = $_POST["newUsername"];
-        $newPassword = $_POST["newPassword"];
-        $newPasswordConfirm = $_POST["confirmPassword"];
-
-        require_once __DIR__ . '/../../config/databaseConnexion.php';
-        $client = databaseConnexion::getConnection();
-
-        if($newPassword == $newPasswordConfirm){
-
-            $checkUser = $client->prepare("SELECT COUNT(*) FROM user WHERE nom = :username");
-            $checkUser->bindParam(':username', $newUsername);
-            $checkUser->execute();
-            $userExists = $checkUser->fetchColumn();
-
-            if ($userExists > 0) {
-                $error = "Ce nom d'utilisateur est déjà pris.";
-            } else {
-                $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
-
-                $insertUser = $client->prepare("INSERT INTO user (nom, mdp) VALUES (:username, :password)");
-                $insertUser->bindParam(':username', $newUsername);
-                $insertUser->bindParam(':password', $hashedPassword);
-                $insertUser->execute();
-                header("Location: /DungeonXplorer/chapter_view/1");
-                exit;
-            }
-
-        } else {
-            $error = 'Les mots de passes ne correspondent pas';
-        }
-    } else {
-        $error = 'Il faut remplir tous les champs du formulaire inscription';
-    }
-
-}
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -121,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="popup-content">
             <span class="close" onclick="closeSignupPopup()">&times;</span>
             <h2>Inscris-toi pour rejoindre l'aventure</h2>
-            <form id="signupForm" action="" method="POST">
+            <form id="signupForm" action="inscription" method="POST">
                 <label for="newUsername">Nom d'utilisateur</label>
                 <input type="text" id="newUsername" name="newUsername" placeholder="Choisis un nom héroïque" required>
 
@@ -139,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 
-    <script src="DungeonXplorer/public/js/script_index.js"></script>
+    <script src="/DungeonXplorer/public/js/script_index.js"></script>
 </body>
 </html>
 

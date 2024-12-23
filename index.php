@@ -74,7 +74,9 @@ $router = new Router('DungeonXplorer');
 
 // Ajout des routes
 $router->addRoute('', 'HomeController@index'); // Pour la racine
+$router->addRoute('home', 'HomeController@index');
 $router->addRoute('choixHero', 'ChoixHeroController@index');
+$router->addRoute('inscription', 'InscriptionController@index');
 $router->addRoute('chapter_view/{id}', 'ChapterController@show');
 
 // Appel de la méthode route
