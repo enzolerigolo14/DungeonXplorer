@@ -27,8 +27,7 @@
             $requete->execute();
             $result = $requete->fetch();
             if ($result && $result['mdp'] === $_POST["password"]) { // Vérification du mot de passe (non sécurisé sans hash)
-                header("Location: /DungeonXplorer/choixHero");
-                exit;
+
                 // Redirection ou traitement ici
             } else {
                 $error = "Nom d'utilisateur ou mot de passe incorrect.";
@@ -39,6 +38,46 @@
             '</pre>';*/
         }
     }
+?>
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    if(isset($_POST["newUsername"]) && isset($_POST["newPassword"]) && isset($_POST["confirmPassword"])){
+        $newUsername = $_POST["newUsername"];
+        $newPassword = $_POST["newPassword"];
+        $newPasswordConfirm = $_POST["confirmPassword"];
+
+        require_once __DIR__ . '/../../config/databaseConnexion.php';
+        $client = databaseConnexion::getConnection();
+
+        if($newPassword == $newPasswordConfirm){
+
+            $checkUser = $client->prepare("SELECT COUNT(*) FROM user WHERE nom = :username");
+            $checkUser->bindParam(':username', $newUsername);
+            $checkUser->execute();
+            $userExists = $checkUser->fetchColumn();
+
+            if ($userExists > 0) {
+                $error = "Ce nom d'utilisateur est déjà pris.";
+            } else {
+                $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+
+                $insertUser = $client->prepare("INSERT INTO user (nom, mdp) VALUES (:username, :password)");
+                $insertUser->bindParam(':username', $newUsername);
+                $insertUser->bindParam(':password', $hashedPassword);
+                $insertUser->execute();
+                header("Location: /DungeonXplorer/chapter_view/1");
+                exit;
+            }
+
+        } else {
+            $error = 'Les mots de passes ne correspondent pas';
+        }
+    } else {
+        $error = 'Il faut remplir tous les champs du formulaire inscription';
+    }
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -70,10 +109,38 @@
                 <label for="password">Mot de passe</label>
                 <input type="password" id="password" name="password" placeholder="Aucun sorcier ne pourra le déchiffrer" required>
                 <button type="submit">Se connecter</button>
+                <p style="color: gray; font-size: 0.7em; margin-top: 10px;">
+                    Pas de compte ? Inscrivez-vous !
+                </p>
+                <button class="signup-button" onclick="openSignupPopup()">S'inscrire</button>
             </form>
         </div>
     </div>
 
-    <script src="/DungeonXplorer/public/js/script_index.js"></script>
+    <div id="signupPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeSignupPopup()">&times;</span>
+            <h2>Inscris-toi pour rejoindre l'aventure</h2>
+            <form id="signupForm" action="" method="POST">
+                <label for="newUsername">Nom d'utilisateur</label>
+                <input type="text" id="newUsername" name="newUsername" placeholder="Choisis un nom héroïque" required>
+
+                <label for="newPassword">Mot de passe</label>
+                <input type="password" id="newPassword" name="newPassword" placeholder="Garde-le secret !" required>
+
+                <label for="confirmPassword">Confirme ton mot de passe</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Retape ton mot de passe" required>
+
+                <button type="submit">S'inscrire</button>
+            </form>
+            <p style="color: gray; font-size: 0.8em; margin-top: 10px; cursor: pointer">
+                Déjà un compte ? <a onclick="openLoginPopup()" style="color: gray; text-decoration: underline;">Connecte-toi ici !</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="DungeonXplorer/public/js/script_index.js"></script>
 </body>
 </html>
+
+
