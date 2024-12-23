@@ -1,7 +1,8 @@
 <?php
 // view/chapter.php
 
-$chapter = $chapterController->getChapter($chapterId);
+$chapterController = new ChapterController();
+$chapter = $chapterController->getChapter($id);
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +13,7 @@ $chapter = $chapterController->getChapter($chapterId);
 </head>
 <body>
     <h1><?php echo $chapter->getTitle(); ?></h1>
-    <img src="<?php echo $chapter->getImage(); ?>" alt="Image de chapitre" style="max-width: 100%; height: auto;">
+    <img src="<?php echo $chapter->getImage(); ?>" alt="Image de chapitre" style="max-width: 300px; height: 300px;">
     <p><?php echo $chapter->getDescription(); ?></p>
 
     <h2>Choisissez votre chemin:</h2>
