@@ -74,6 +74,7 @@ $router = new Router('DungeonXplorer');
 
 // Ajout des routes
 $router->addRoute('', 'HomeController@index'); // Pour la racine
+$router->addRoute('choixHero', 'ChoixHeroController@index');
 //$router->addRoute('tasks/{id}', 'TaskController@show'); // Pour afficher une tâche par ID
 
 // Appel de la méthode route
