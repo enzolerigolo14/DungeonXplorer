@@ -139,7 +139,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 
-    <script src="DungeonXplorer/public/js/script_index.js"></script>
+    <script src="/DungeonXplorer/public/js/script_index.js"></script>
 </body>
 </html>
 
