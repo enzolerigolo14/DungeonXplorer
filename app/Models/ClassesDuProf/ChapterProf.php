@@ -1,8 +1,8 @@
 <?php
 
-// models/Chapter.php
+// models/ChapterProf.php
 
-class Chapter
+class ChapterProf
 {
     private $id;
     private $title;

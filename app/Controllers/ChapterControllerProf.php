@@ -2,8 +2,8 @@
 
 // controllers/ChapterControllerProf.php
 
-//require_once 'models/ClassesDuProf/Chapter.php';
-require_once 'app/models/ClassesDuProf/Chapter.php';
+//require_once 'models/ClassesDuProf/ChapterProf.php';
+require_once 'app/models/ClassesDuProf/ChapterProf.php';
 
 class ChapterControllerProf
 {
@@ -11,8 +11,7 @@ class ChapterControllerProf
 
     public function __construct()
     {
-        //Exemple de chapitres avec des images
-        $this->chapters[] = new Chapter(
+        $this->chapters[] = new ChapterProf(
             1,
             "La Forêt Enchantée",
             "Vous vous trouvez dans une forêt sombre et enchantée. Deux chemins se présentent à vous.",
@@ -23,7 +22,7 @@ class ChapterControllerProf
             ]
         );
 
-        $this->chapters[] = new Chapter(
+        $this->chapters[] = new ChapterProf(
             2,
             "Le Lac Mystérieux",
             "Vous arrivez à un lac aux eaux limpides. Une créature vous observe.",

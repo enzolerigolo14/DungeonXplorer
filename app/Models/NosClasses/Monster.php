@@ -61,7 +61,7 @@ class Monster{
     }
 
     // Setter pour l'ID du loot
-    public function setLootId($loot_id) {
+    public function setLoot_id($loot_id) {
         $this->loot_id = $loot_id;
     }
 

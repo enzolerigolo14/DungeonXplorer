@@ -27,7 +27,7 @@
             $requete->execute();
             $result = $requete->fetch();
             if ($result && password_verify($password, $result['mdp'])) { // Vérification du mot de passe (non sécurisé sans hash)
-                header("Location: /DungeonXplorer/chapter_view/2");
+                header("Location: /DungeonXplorer/chapter_view/1");
                 // Redirection ou traitement ici
             } else {
                 $error = "Nom d'utilisateur ou mot de passe incorrect.";

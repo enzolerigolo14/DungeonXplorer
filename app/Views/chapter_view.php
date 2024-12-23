@@ -1,7 +1,7 @@
 <?php
 // view/chapter.php
 
-$chapterController = new ChapterControllerProf();
+$chapterController = new ChapterController();
 $chapter = $chapterController->getChapter($id);
 ?>
 
@@ -13,18 +13,16 @@ $chapter = $chapterController->getChapter($id);
 </head>
 <body>
     <h1><?php echo $chapter->getTitle(); ?></h1>
-    <img src="<?php echo $chapter->getImage(); ?>" alt="Image de chapitre" style="max-width: 300px; height: 300px;">
-    <p><?php echo $chapter->getDescription(); ?></p>
+    <img src="../public/images/fond_ruine.jpg" alt="Image de chapitre" style="max-width: 300px; height: 300px;">
+    <p><?php echo $chapter->getContent(); ?></p>
 
-    <h2>Choisissez votre chemin:</h2>
-    <ul>
-        <?php foreach ($chapter->getChoices() as $choice): ?>
-            <li>
-                <a href="<?php echo $choice['chapter']; ?>">
-                    <?php echo $choice['text']; ?>
-                </a>
-            </li>
-        <?php endforeach; ?>
-    </ul>
+    <?php
+        if($nbLinks != 0){
+            echo '<h2>Choisissez votre chemin:</h2>';
+            foreach ($AllLinks as $choice) {
+                echo '<button><a href="'.$choice->getNextchapterId().'">'.$choice->getDescription().'</a></button>';
+            }
+        }
+    ?>
 </body>
 </html>

@@ -17,11 +17,11 @@ abstract class Classe {
             $method = 'set'.ucfirst($key);
 
             if(method_exists($this, $method)){
-                echo '<br>';
+                //echo '<br>';
                 $this->$method($value); 
-                echo 'Nom méthode : '.$method.'('.$value.')<br>';
+                //echo 'Nom méthode : '.$method.'('.$value.')<br>';
             } else {
-                echo 'Ca existe pas : Nom méthode : '.$method.'('.$value.')<br>';
+                //echo 'Ca existe pas : Nom méthode : '.$method.'('.$value.')<br>';
             }
         }
     }

@@ -10,11 +10,11 @@ class Links{
             $method = 'set'.ucfirst($key);
 
             if(method_exists($this, $method)){
-                echo '<br>';
+                //echo '<br>';
                 $this->$method($value); 
-                echo 'Nom méthode : '.$method.'('.$value.')<br>';
+                //echo 'Nom méthode : '.$method.'('.$value.')<br>';
             } else {
-                echo 'Ca existe pas : Nom méthode : '.$method.'('.$value.')<br>';
+                //echo 'Ca existe pas : Nom méthode : '.$method.'('.$value.')<br>';
             }
         }
     }
@@ -24,12 +24,12 @@ class Links{
     }
 
     // Setter pour le chapter_id
-    public function setChapterId($chapter_id) {
+    public function setChapter_id($chapter_id) {
         $this->chapter_id = $chapter_id;
     }
 
     // Setter pour le next_chapter_id
-    public function setNextChapterId($next_chapter_id) {
+    public function setNext_chapter_id($next_chapter_id) {
         $this->next_chapter_id = $next_chapter_id;
     }
 
@@ -37,6 +37,39 @@ class Links{
     public function setDescription($description) {
         $this->description = $description;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getChapterId()
+    {
+        return $this->chapter_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNextChapterId()
+    {
+        return $this->next_chapter_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
 }
 
 ?>

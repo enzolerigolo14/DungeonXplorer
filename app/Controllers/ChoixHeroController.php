@@ -8,6 +8,7 @@ class ChoixHeroController {
         require_once __DIR__ . '/../models/NosClasses/Guerrier.php';
         require_once __DIR__ . '/../models/NosClasses/Magicien.php';
         require_once __DIR__ . '/../models/NosClasses/Voleur.php';
+
         $client = databaseConnexion::getConnection();
 
         $requete = $client->prepare("select * from class");
