@@ -1,7 +1,7 @@
 <?php
 // view/chapter.php
 
-$chapterController = new ChapterController();
+$chapterController = new ChapterControllerProf();
 $chapter = $chapterController->getChapter($id);
 ?>
 

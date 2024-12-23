@@ -42,17 +42,12 @@ abstract class Classe {
     }
 
     // Setter pour $base_pv
-    public function setBasePv($base_pv) {
+    public function setBase_Pv($base_pv) {
         $this->base_pv = $base_pv;
     }
 
-    // Setter pour $base_mana
-    public function setBaseMana($base_mana) {
-        $this->base_mana = $base_mana;
-    }
-
     // Setter pour $base_armor
-    public function setBaseArmor($base_armor) {
+    public function setBase_armor($base_armor) {
         $this->base_armor = $base_armor;
     }
 
@@ -67,18 +62,109 @@ abstract class Classe {
     }
 
     // Setter pour $max_item
-    public function setMaxItem($max_item) {
+    public function setMax_items($max_item) {
         $this->max_item = $max_item;
     }
 
     // Setter pour $primary_weapon_default
-    public function setPrimaryWeaponDefault($primary_weapon_default) {
+    public function setPrimary_weapon_default_id($primary_weapon_default) {
         $this->primary_weapon_default = $primary_weapon_default;
     }
 
     // Setter pour $secondary_object_id
-    public function setSecondaryObjectId($secondary_object_id) {
+    public function setSecondary_object_id($secondary_object_id) {
         $this->secondary_object_id = $secondary_object_id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBasePv()
+    {
+        return $this->base_pv;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBaseMana()
+    {
+        return $this->base_mana;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBaseArmor()
+    {
+        return $this->base_armor;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStrength()
+    {
+        return $this->strength;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInitiative()
+    {
+        return $this->initiative;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMaxItem()
+    {
+        return $this->max_item;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrimaryWeaponDefault()
+    {
+        return $this->primary_weapon_default;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSecondaryObjectId()
+    {
+        return $this->secondary_object_id;
+    }
+
+
+
 }
 ?>

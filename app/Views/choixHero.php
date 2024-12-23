@@ -6,6 +6,13 @@
     <title>DungeonXplorer</title>
 </head>
 <body>
-    <h1>Connexion Réussie !</h1>
+    <h1>Choix de la classe de ton Heros !</h1>
+    <pre>
+        <?php var_dump($voleur);
+        var_dump($guerrier);
+        var_dump($magicien);
+        ?>
+
+    </pre>
 </body>
 </html>

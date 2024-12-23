@@ -24,12 +24,12 @@ class Quest{
     }
 
     // Setter pour le hero_id
-    public function setHeroId($hero_id) {
+    public function setHero_id($hero_id) {
         $this->hero_id = $hero_id;
     }
 
     // Setter pour le chapter_id
-    public function setChapterId($chapter_id) {
+    public function setChapter_id($chapter_id) {
         $this->chapter_id = $chapter_id;
     }
 }

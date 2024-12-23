@@ -1,24 +1,35 @@
 <?php
 abstract class ClassMagique extends Classe{
     private $base_mana;
-    
-    public function hydrate(array $donnes){
-        foreach($donnes as $key => $value){
-            $method = 'set'.ucfirst($key);
+    private $spell_id;
 
-            if(method_exists($this, $method)){
-                echo '<br>';
-                $this->$method($value); 
-                echo 'Nom méthode : '.$method.'('.$value.')<br>';
-            } else {
-                echo 'Ca existe pas : Nom méthode : '.$method.'('.$value.')<br>';
-            }
-        }
-    }
-
-    public function setBaseMana($base_mana){
+    // Setter pour $base_mana
+    public function setBase_mana($base_mana) {
         $this->base_mana = $base_mana;
     }
+
+    public function setSpell_id($spell_id) {
+        $this->spell_id = $spell_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBaseMana()
+    {
+        return $this->base_mana;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSpellId()
+    {
+        return $this->spell_id;
+    }
+
+
+
 }
 
 

@@ -32,7 +32,7 @@ class Weapon {
     }
 
     // Setter pour $item_id
-    public function setItemId($item_id) {
+    public function setItem_id($item_id) {
         $this->item_id = $item_id;
     }
 
@@ -42,12 +42,12 @@ class Weapon {
     }
 
     // Setter pour $stat_attaque
-    public function setStatAttaque($stat_attaque) {
+    public function setStat_attaque($stat_attaque) {
         $this->stat_attaque = $stat_attaque;
     }
 
     // Setter pour $stat_bonus
-    public function setStatBonus($stat_bonus) {
+    public function setStat_bonus($stat_bonus) {
         $this->stat_bonus = $stat_bonus;
     }
 }
