@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `ChapterProf`
+-- Structure de la table `Chapter`
 --
 
 CREATE TABLE `Chapter` (
@@ -35,7 +35,7 @@ CREATE TABLE `Chapter` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `ChapterProf`
+-- Déchargement des données de la table `Chapter`
 --
 
 INSERT INTO `Chapter` (`id`, `content`, `image`, `treasure_id`) VALUES
@@ -436,7 +436,7 @@ INSERT INTO `Weapons` (`id`, `name`, `item_id`, `slot`, `stat_attaque`, `stat_bo
 --
 
 --
--- Index pour la table `ChapterProf`
+-- Index pour la table `Chapter`
 --
 ALTER TABLE `Chapter`
   ADD PRIMARY KEY (`id`),
@@ -573,7 +573,7 @@ ALTER TABLE `Weapons`
 --
 
 --
--- AUTO_INCREMENT pour la table `ChapterProf`
+-- AUTO_INCREMENT pour la table `Chapter`
 --
 ALTER TABLE `Chapter`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
@@ -685,7 +685,7 @@ ALTER TABLE `Weapons`
 --
 
 --
--- Contraintes pour la table `ChapterProf`
+-- Contraintes pour la table `Chapter`
 --
 ALTER TABLE `Chapter`
   ADD CONSTRAINT `Chapter_ibfk_1` FOREIGN KEY (`treasure_id`) REFERENCES `Items` (`id`);
