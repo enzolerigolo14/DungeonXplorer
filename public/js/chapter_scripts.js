@@ -37,14 +37,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }, typingDelay);
     }, pauseAfterTitle);
 
-    
-
-
-    // jsp si c'est gérer comme ça avec le mvc vu que normalement une nouvelle page c'est juste changer le texte afficher
-    // jpense que plutot que faire window location machin faudrait plutot changer les variable title element et text element tt en haut3
-    // j'imagine que tu peux recup le chapitre, son texte, titre, si il a un event etc fin j'espere, bon courage
-    function goToPage(page) {
-        window.location.href = page;
-    }
-
 });

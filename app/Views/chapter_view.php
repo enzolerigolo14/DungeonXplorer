@@ -28,6 +28,8 @@ $chapter = $chapterController->getChapter($id);
             foreach ($AllLinks as $choice) {
                 echo '<button class="event-button"><a href="'.$choice->getNextchapterId().'">'.$choice->getDescription().'</a></button>';
             }
+        } else {
+            echo '<button class="event-button"><a href="1">Recommencer l\'aventure</a></button>';
         }
     ?>
     <script src="/DungeonXplorer/public/js/chapter_scripts.js"></script>
