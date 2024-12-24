@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 24 déc. 2024 à 00:28
+-- Généré le : mar. 24 déc. 2024 à 11:41
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -221,22 +221,22 @@ CREATE TABLE `links` (
 --
 
 INSERT INTO `links` (`id`, `chapter_id`, `next_chapter_id`, `description`) VALUES
-(1, 1, 22, 'lancer le chapitre 22'),
-(2, 1, 2, 'lancer le chapitre 2'),
-(3, 2, 3, 'lancer le chapitre 3'),
-(4, 2, 4, 'lancer le chapitre 4\r\n\r\n'),
-(5, 3, 5, 'lancer chapitre 5'),
-(6, 3, 6, 'lancer chapitre 6'),
-(7, 4, 8, 'lancer le chapitre 8'),
-(8, 4, 10, 'lancer le chapitre 10'),
-(9, 5, 7, 'lancer le chapitre 7'),
-(10, 6, 5, 'lancer le chapitre 5'),
-(11, 6, 10, 'lancer le chapitre 10'),
-(12, 7, 20, 'lancer le chapitre 20'),
-(13, 7, 9, 'lancer le chapitre 9'),
-(14, 8, 22, 'lancer le chapitre 22'),
-(15, 8, 9, 'lancer le chapitre 9'),
-(16, 9, 10, 'lancer le chapitre 10');
+(1, 1, 22, 'Non'),
+(2, 1, 2, 'Oui'),
+(3, 2, 3, 'Chemin sinueux'),
+(4, 2, 4, 'Chemin des ronces\r\n'),
+(5, 3, 5, 'Rester prudent'),
+(6, 3, 6, 'Avancer malgré le danger'),
+(7, 4, 8, 'Victoire'),
+(8, 4, 10, 'Défaite'),
+(9, 5, 7, 'Continuer l\'aventure'),
+(10, 6, 5, 'Victoire'),
+(11, 6, 10, 'Défaite'),
+(12, 7, 20, 'Chemin mousseux'),
+(13, 7, 9, 'Chemin enraciné'),
+(14, 8, 22, 'Toucher la pierre'),
+(15, 8, 9, 'Mieux vaut s\'abstenir'),
+(16, 9, 10, 'Continuer sur votre route');
 
 -- --------------------------------------------------------
 
