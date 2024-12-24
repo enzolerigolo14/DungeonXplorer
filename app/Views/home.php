@@ -3,20 +3,6 @@
     $error = "";
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if(isset($_POST["username"]) && isset($_POST["password"])){
-            // Récupération des variables d'environnement
-            /*$dbHost = "localhost";
-            $dbName = "dx12_bd";
-            $dbUser = "dx12";
-            $dbPassword = "oovohZe4oNg9Eing";
-            
-            try {
-                // Créer la connexion PDO avec tes paramètres
-                $client = new PDO("mysql:host=$dbHost;dbname=$dbName;charset=utf8", $dbUser, $dbPassword);
-            } catch (PDOException $e) {
-                // Afficher une erreur si la connexion échoue
-                echo 'Erreur de connexion à la base de données : ' . $e->getMessage();
-                exit;
-            }*/
 
             require_once __DIR__ . '/../../config/databaseConnexion.php';
             $client = databaseConnexion::getConnection();
@@ -26,8 +12,16 @@
             $requete = $client->prepare("SELECT * from user where nom = '$username'");
             $requete->execute();
             $result = $requete->fetch();
-            if ($result && password_verify($password, $result['mdp'])) { // Vérification du mot de passe (non sécurisé sans hash)
+            if ($result && password_verify($password, $result['mdp'])) {
+
+                $requeteIdUser = $client->prepare("SELECT id FROM user WHERE nom = :username");
+                $requeteIdUser->bindParam(':username', $username);
+                $requeteIdUser->execute();
+                $idUser = $requeteIdUser->fetchColumn();
+                $_SESSION["userId"] = $idUser;
+
                 header("Location: /DungeonXplorer/chapter_view/1");
+                exit;
                 // Redirection ou traitement ici
             } else {
                 $error = "Nom d'utilisateur ou mot de passe incorrect.";

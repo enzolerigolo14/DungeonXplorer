@@ -12,20 +12,19 @@
         <div class="class-selection">
 
             <div class="class-card">
-                <img src="/DungeonXplorer/public/images/mage.jpg" alt="Mage">
+                <a href="creationMage"><img src="/DungeonXplorer/public/images/mage.jpg" alt="Mage"></a>
                 <h2>Mage</h2>
             </div>
 
             <div class="class-card">
-                <img src="/DungeonXplorer/public/images/guerrier.jpg" alt="Guerrier">
+                <a href="creationGuerrier"><img src="/DungeonXplorer/public/images/guerrier.jpg" alt="Guerrier"></a>
                 <h2>Guerrier</h2>
             </div>
 
             <div class="class-card">
-                <img src="/DungeonXplorer/public/images/voleur.jpg" alt="Voleur">
+                <a href="creationVoleur"><img src="/DungeonXplorer/public/images/voleur.jpg" alt="Voleur"></a>
                 <h2>Voleur</h2>
             </div>
         </div>
-
     </body>
 </html>
