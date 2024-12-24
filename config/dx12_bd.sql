@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 24 déc. 2024 à 11:41
+-- Généré le : mar. 24 déc. 2024 à 14:36
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -236,7 +236,9 @@ INSERT INTO `links` (`id`, `chapter_id`, `next_chapter_id`, `description`) VALUE
 (13, 7, 9, 'Chemin enraciné'),
 (14, 8, 22, 'Toucher la pierre'),
 (15, 8, 9, 'Mieux vaut s\'abstenir'),
-(16, 9, 10, 'Continuer sur votre route');
+(16, 9, 10, 'Continuer sur votre route'),
+(17, 10, 11, 'Suite'),
+(18, 11, 12, 'Fin acte 1');
 
 -- --------------------------------------------------------
 
@@ -413,10 +415,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nom`, `mdp`, `admin`) VALUES
-(1, 'Hugo', '$2y$10$vo8XvhUXg7Vr3G7..AuSjO2YoxKTEPG7sdiUefIdsZrTirkAPSRiu', 0),
-(2, 'toi', '$2y$10$Y6DK1YZi7RxSxo8e.ydirOP9QrZSdYwQh9851LoGcmjpbO7Bz7ty6', 0),
-(3, 'Dracaufeu', '$2y$10$//W/igzXUkrvCjr7Hdu0c.lv4YnW8FZ1CVp4C5eF4cHvNSuCzM3mS', 0),
-(4, 'Florizarre', '$2y$10$hPs0KGntbI4R8U0Wk5TtRuHyUQVr5CUeb2ZA6i.Pin5GR3H/ToEIS', 0);
+(1, 'Hugo', '$2y$10$vo8XvhUXg7Vr3G7..AuSjO2YoxKTEPG7sdiUefIdsZrTirkAPSRiu', 0);
 
 -- --------------------------------------------------------
 
@@ -635,7 +634,7 @@ ALTER TABLE `level`
 -- AUTO_INCREMENT pour la table `links`
 --
 ALTER TABLE `links`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT pour la table `monster`
@@ -683,7 +682,7 @@ ALTER TABLE `typemalus`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `weapons`
