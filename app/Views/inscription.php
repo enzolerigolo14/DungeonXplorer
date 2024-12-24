@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($userExists > 0) {
                 $error = "Ce nom d'utilisateur est déjà pris.";
-                header("Location: /DungeonXplorer/");
+                header("Location: /DungeonXplorer/choixHero");
             } else {
                 $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
 

@@ -9,20 +9,27 @@ $chapter = $chapterController->getChapter($id);
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $chapter->getTitle(); ?></title>
+    <link rel="stylesheet" href="/DungeonXplorer/public/css/chapter_styles.css">
 </head>
 <body>
-    <h1><?php echo $chapter->getTitle(); ?></h1>
-    <img src="../public/images/fond_ruine.jpg" alt="Image de chapitre" style="max-width: 300px; height: 300px;">
-    <p><?php echo $chapter->getContent(); ?></p>
+    <p id="textTemp" style="display: none"><?php echo $chapter->getContent(); ?></p>
+    <div>
+        <h1 id="chapter-title"><?php echo $chapter->getTitle(); ?></h1> <!-- Le titre s'affichera ici -->
+        <div id="textContainer">
+            <p id="chapter-text" style="display: none;"></p> <!-- Le texte s'affichera ici -->
+        </div>
+    </div>
 
     <?php
+        echo '<div class="button-container">';
         if($nbLinks != 0){
-            echo '<h2>Choisissez votre chemin:</h2>';
             foreach ($AllLinks as $choice) {
-                echo '<button><a href="'.$choice->getNextchapterId().'">'.$choice->getDescription().'</a></button>';
+                echo '<button class="event-button"><a href="'.$choice->getNextchapterId().'">'.$choice->getDescription().'</a></button>';
             }
         }
     ?>
+    <script src="/DungeonXplorer/public/js/chapter_scripts.js"></script>
 </body>
 </html>
