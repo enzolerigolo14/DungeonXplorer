@@ -76,8 +76,8 @@ $router = new Router('DungeonXplorer');
 $router->addRoute('', 'HomeController@index'); // Pour la racine
 $router->addRoute('home', 'HomeController@index');
 $router->addRoute('choixHero', 'ChoixHeroController@index');
-$router->addRoute('inscription', 'InscriptionController@index');
-$router->addRoute('connexion', 'ConnexionController@index');
+$router->addRoute('inscription', 'HomeController@inscription');
+$router->addRoute('connexion', 'HomeController@connexion');
 $router->addRoute('chapter_view/{id}', 'ChapterController@show');
 $router->addRoute('Guerrier', 'CreationGuerrierController@index');
 $router->addRoute('Mage', 'CreationMageController@index');
@@ -85,6 +85,7 @@ $router->addRoute('Voleur', 'CreationVoleurController@index');
 $router->addRoute('creationVoleur', 'CreationVoleurController@creerVoleur');
 $router->addRoute('creationGuerrier', 'CreationGuerrierController@creerGuerrier');
 $router->addRoute('creationMage', 'CreationMageController@creerMage');
+//$router->addRoute('chapter_view/deconnexion', 'ChapterController@deconnexion');
 
 // Appel de la méthode route
 $router->route(trim($_SERVER['REQUEST_URI'], '/'));

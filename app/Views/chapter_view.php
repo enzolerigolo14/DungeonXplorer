@@ -14,6 +14,9 @@ $chapter = $chapterController->getChapter($id);
     <link rel="stylesheet" href="/DungeonXplorer/public/css/chapter_styles.css">
 </head>
 <body>
+    <div class="buttonNavbar-container">
+        <button class="deco-button"><a href="deconnexion">Se déconnecter</a></button>
+    </div>
     <p id="textTemp" style="display: none"><?php echo $chapter->getContent(); ?></p>
     <div>
         <h1 id="chapter-title"><?php echo $chapter->getTitle(); ?></h1> <!-- Le titre s'affichera ici -->
@@ -23,7 +26,7 @@ $chapter = $chapterController->getChapter($id);
     </div>
 
     <?php
-        echo '<div class="button-container">';
+        echo '<div class="buttonEvent-container">';
         if($nbLinks != 0){
             foreach ($AllLinks as $choice) {
                 echo '<button class="event-button"><a href="'.$choice->getNextchapterId().'">'.$choice->getDescription().'</a></button>';

@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const titleElement = document.getElementById('chapter-title');
     const textElement = document.getElementById('chapter-text');
-    const choiceContainer = document.getElementById('choice-container');
+    const choiceContainer = document.getElementById('button-container');
     const eventContainer = document.getElementById('event-container');
     
     // faut les recup dans la bdd normalement celles ci

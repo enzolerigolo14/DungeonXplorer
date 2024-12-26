@@ -27,21 +27,42 @@ class ChapterController {
     public function show($id)
     {
         $client = databaseConnexion::getConnection();
+
         $chapter = $this->getChapter($id);
 
-        $this->updateQuest($id, $client);
+        if(is_numeric($id)){
+            $this->updateQuest($id, $client);
+        }
 
         $nbLinks = $this->getNbLinks($id, $client);
 
         $AllLinks = $this->getAllLinks($id, $client);
 
+        $nbEncounter = $this->getNbEncounter($id, $client);
+
         if ($chapter) {
-            include 'app/views/chapter_view.php'; // Charge la vue pour le chapitre
-        } else {
-            // Si le chapitre n'existe pas, redirige vers un chapitre par défaut ou affiche une erreur
-            header('HTTP/1.0 404 Not Found');
-            echo "Chapitre non trouvé!";
+            include 'app/views/chapter_view.php';// Charge la vue pour le chapitre
+
+        } else if($id == "deconnexion") {
+            /*session_start();
+            session_destroy();*/
+            echo 'Deconnexion !!!';
+
+            header("Location: /DungeonXplorer/home");
         }
+        else {
+            // Si le chapitre n'existe pas, redirige vers un chapitre par défaut ou affiche une erreur
+            echo "Chapitre non trouvé!";
+            header('HTTP/1.0 404 Not Found');
+        }
+    }
+
+    public function getNbEncounter($chapter_id, $client) : int{
+        $requeteEncounter = $client->prepare("select count(*) from encounter en join chapter ch on en.chapter_id = ch.id where chapter_id = :chapter_id;");
+        $requeteEncounter->bindParam(':chapter_id', $chapter_id);
+        $requeteEncounter->execute();
+        $nb = $requeteEncounter->fetchColumn();
+        return $nb;
     }
 
     public function updateQuest($chapter_id, $client){
@@ -53,7 +74,9 @@ class ChapterController {
         $requeteGetHerosId->execute();
         $hero_id = $requeteGetHerosId->fetchColumn();
 
-        $requeteUpdateQuest = $client->prepare("update quest set chapter_id = {$chapter_id} where hero_id = {$hero_id}");
+        $requeteUpdateQuest = $client->prepare("update quest set chapter_id = :chapter_id where hero_id = :hero_id");
+        $requeteUpdateQuest->bindParam(':chapter_id', $chapter_id);
+        $requeteUpdateQuest->bindParam(':hero_id', $hero_id);
         $requeteUpdateQuest->execute();
 
     }

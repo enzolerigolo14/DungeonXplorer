@@ -90,9 +90,31 @@ p {
     background-color: #E03E00;
 }
 
-.button-container {
+.buttonEvent-container {
     position: fixed; /* Si le conteneur doit rester en place */
     bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px; /* Espacement entre les boutons */
+}
+
+.deco-button {
+    position: relative;
+    background-color: #FF4500;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+    margin: 10px 0;
+}
+
+.buttonNavbar-container {
+    position: absolute; /* Si le conteneur doit rester en place */
+    top: 20px;
     right: 20px;
     display: flex;
     gap: 10px; /* Espacement entre les boutons */
