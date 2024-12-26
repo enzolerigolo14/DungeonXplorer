@@ -37,16 +37,16 @@ class InscriptionController {
                         $idUser = $requeteIdUser->fetchColumn();
                         $_SESSION["userId"] = $idUser;
 
-                        //header("Location: /DungeonXplorer/choixHero");
-                        require_once "app/views/choixHero.php";
+                        header("Location: /DungeonXplorer/choixHero");
+                        //require_once "app/views/choixHero.php";
                         exit;
                     }
 
                 } else {
                     $error = 'Les mots de passes ne correspondent pas';
                     require_once "app/views/home.php";
-                    exit;
                     //header("Location: /DungeonXplorer/");
+                    exit;
                 }
             } else {
                 $error = 'Il faut remplir tous les champs du formulaire inscription';

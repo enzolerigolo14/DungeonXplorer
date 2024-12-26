@@ -1,39 +1,3 @@
-<?php
-    session_start();
-    $error = "";
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if(isset($_POST["username"]) && isset($_POST["password"])){
-
-            require_once __DIR__ . '/../../config/databaseConnexion.php';
-            $client = databaseConnexion::getConnection();
-    
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-            $requete = $client->prepare("SELECT * from user where nom = '$username'");
-            $requete->execute();
-            $result = $requete->fetch();
-            if ($result && password_verify($password, $result['mdp'])) {
-
-                $requeteIdUser = $client->prepare("SELECT id FROM user WHERE nom = :username");
-                $requeteIdUser->bindParam(':username', $username);
-                $requeteIdUser->execute();
-                $idUser = $requeteIdUser->fetchColumn();
-                $_SESSION["userId"] = $idUser;
-
-                header("Location: /DungeonXplorer/chapter_view/1");
-                exit;
-                // Redirection ou traitement ici
-            } else {
-                $error = "Nom d'utilisateur ou mot de passe incorrect.";
-            }
-        
-            /*'<pre>';
-            var_dump($result);
-            '</pre>';*/
-        }
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -58,7 +22,7 @@
         <div class="popup-content">
             <span class="close" onclick="closeLoginPopup()">&times;</span>
             <h2>Connecte-toi pour commencer l'aventure</h2>
-            <form id="loginForm" action="" method="POST">
+            <form id="loginForm" action="connexion" method="POST">
                 <label for="username">Nom d'utilisateur</label>
                 <input type="text" id="username" name="username" placeholder="Choisis un nom digne d'un guerrier" required>
                 <label for="password">Mot de passe</label>
@@ -76,7 +40,7 @@
         <div class="popup-content">
             <span class="close" onclick="closeSignupPopup()">&times;</span>
             <h2>Inscris-toi pour rejoindre l'aventure</h2>
-            <form id="signupForm" action="choixHero" method="POST">
+            <form id="signupForm" action="inscription" method="POST">
                 <label for="newUsername">Nom d'utilisateur</label>
                 <input type="text" id="newUsername" name="newUsername" placeholder="Choisis un nom héroïque" required>
 

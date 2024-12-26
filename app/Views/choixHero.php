@@ -12,17 +12,17 @@
         <div class="class-selection">
 
             <div class="class-card">
-                <a href="creationMage"><img src="/DungeonXplorer/public/images/mage.jpg" alt="Mage"></a>
+                <a href="Mage"><img src="/DungeonXplorer/public/images/mage.jpg" alt="Mage"></a>
                 <h2>Mage</h2>
             </div>
 
             <div class="class-card">
-                <a href="creationGuerrier"><img src="/DungeonXplorer/public/images/guerrier.jpg" alt="Guerrier"></a>
+                <a href="Guerrier"><img src="/DungeonXplorer/public/images/guerrier.jpg" alt="Guerrier"></a>
                 <h2>Guerrier</h2>
             </div>
 
             <div class="class-card">
-                <a href="creationVoleur"><img src="/DungeonXplorer/public/images/voleur.jpg" alt="Voleur"></a>
+                <a href="Voleur"><img src="/DungeonXplorer/public/images/voleur.jpg" alt="Voleur"></a>
                 <h2>Voleur</h2>
             </div>
         </div>
