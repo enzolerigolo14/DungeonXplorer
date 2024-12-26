@@ -9,6 +9,7 @@ abstract class Classe {
     private $strength;
     private $initiative;
     private $max_item;
+    private $spell_id;
     private $primary_weapon_default;
     private $secondary_object_id;
 
@@ -46,6 +47,10 @@ abstract class Classe {
         $this->base_pv = $base_pv;
     }
 
+    public function setBase_Mana($base_mana) {
+        $this->base_mana = $base_mana;
+    }
+
     // Setter pour $base_armor
     public function setBase_armor($base_armor) {
         $this->base_armor = $base_armor;
@@ -64,6 +69,10 @@ abstract class Classe {
     // Setter pour $max_item
     public function setMax_items($max_item) {
         $this->max_item = $max_item;
+    }
+
+    public function setSpell_id($spell_id) {
+        $this->spell_id = $spell_id;
     }
 
     // Setter pour $primary_weapon_default
@@ -151,6 +160,14 @@ abstract class Classe {
     /**
      * @return mixed
      */
+    public function getSpell_id()
+    {
+        return $this->spell_id;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getPrimaryWeaponDefault()
     {
         return $this->primary_weapon_default;
@@ -163,8 +180,6 @@ abstract class Classe {
     {
         return $this->secondary_object_id;
     }
-
-
 
 }
 ?>

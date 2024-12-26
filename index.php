@@ -77,7 +77,14 @@ $router->addRoute('', 'HomeController@index'); // Pour la racine
 $router->addRoute('home', 'HomeController@index');
 $router->addRoute('choixHero', 'ChoixHeroController@index');
 $router->addRoute('inscription', 'InscriptionController@index');
+$router->addRoute('connexion', 'ConnexionController@index');
 $router->addRoute('chapter_view/{id}', 'ChapterController@show');
+$router->addRoute('Guerrier', 'CreationGuerrierController@index');
+$router->addRoute('Mage', 'CreationMageController@index');
+$router->addRoute('Voleur', 'CreationVoleurController@index');
+$router->addRoute('creationVoleur', 'CreationVoleurController@creerVoleur');
+$router->addRoute('creationGuerrier', 'CreationGuerrierController@creerGuerrier');
+$router->addRoute('creationMage', 'CreationMageController@creerMage');
 
 // Appel de la méthode route
 $router->route(trim($_SERVER['REQUEST_URI'], '/'));

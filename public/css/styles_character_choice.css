@@ -1,4 +1,3 @@
-/* S'assurer que le body utilise toute la hauteur et gère les débordements */
 body {
     margin: 0;
     padding: 0;
@@ -6,6 +5,10 @@ body {
     color: #fff;
     font-family: 'Zonaix', sans-serif;
     display: flex;
+    flex-direction: column; /* Les éléments s'empilent verticalement */
+    align-items: center; /* Centre horizontalement tout dans la colonne */
+    justify-content: center;
+    width: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
@@ -74,7 +77,6 @@ h1 {
     line-height: 1.6;
     color: #CCCCCC;
 }
-
 /* Responsiveness pour écrans moyens */
 @media (max-width: 768px) {
     .class-selection {
