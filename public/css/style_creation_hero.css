@@ -141,3 +141,90 @@ button:hover {
     background-color: #FF6347;
     transform: scale(1.05);
 }
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 2rem; /* Réduire la taille du titre pour les tablettes */
+    }
+
+    .container {
+        padding: 0 20px; /* Ajouter un padding pour les grands écrans */
+    }
+
+    .class-card {
+        width: 220px; /* Réduire la largeur des cartes */
+    }
+
+    form {
+        width: 80%; /* Formulaire plus large sur tablettes */
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem; /* Réduit la taille du titre pour les écrans moyens */
+    }
+
+    .container {
+        padding: 0 15px; /* Un peu moins de padding */
+    }
+
+    .class-card {
+        width: 200px; /* Réduire la largeur des cartes */
+        padding: 15px; /* Ajuster le padding */
+    }
+
+    .class-card-form,
+    .class-card-form-img {
+        width: 200px; /* Réduire la taille des formulaires */
+    }
+
+    .display-form-image {
+        width: 100%; /* Rendre l'image plus petite et responsive */
+        flex-direction: column; /* Changer l'orientation des images */
+    }
+
+    input, textarea {
+        font-size: 0.9rem; /* Réduire la taille de la police pour les petits écrans */
+    }
+
+    button {
+        font-size: 1rem; /* Réduire la taille du bouton */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem; /* Réduire la taille du titre pour les petits écrans */
+        margin: 15px 0; /* Ajuster les marges pour les petits écrans */
+    }
+
+    .container {
+        padding: 0 10px; /* Ajouter un padding plus petit */
+    }
+
+    .class-card {
+        width: 100%; /* Les cartes prennent toute la largeur */
+        padding: 10px; /* Réduire le padding des cartes */
+    }
+
+    .class-card-form,
+    .class-card-form-img {
+        width: 100%; /* Les formulaires prennent toute la largeur */
+        padding: 15px; /* Ajuster le padding */
+    }
+
+    .display-form-image {
+        width: 100%; /* Ajuster la taille de l'image */
+        flex-direction: column; /* Orientation en colonne sur petits écrans */
+    }
+
+    input, textarea {
+        font-size: 0.8rem; /* Réduire la taille de la police sur petits écrans */
+    }
+
+    button {
+        font-size: 1rem; /* Réduire la taille du bouton */
+    }
+}
