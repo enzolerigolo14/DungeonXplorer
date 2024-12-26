@@ -76,7 +76,7 @@
         <div class="popup-content">
             <span class="close" onclick="closeSignupPopup()">&times;</span>
             <h2>Inscris-toi pour rejoindre l'aventure</h2>
-            <form id="signupForm" action="inscription" method="POST">
+            <form id="signupForm" action="choixHero" method="POST">
                 <label for="newUsername">Nom d'utilisateur</label>
                 <input type="text" id="newUsername" name="newUsername" placeholder="Choisis un nom héroïque" required>
 

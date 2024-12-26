@@ -47,6 +47,10 @@ abstract class Classe {
         $this->base_pv = $base_pv;
     }
 
+    public function setBase_Mana($base_mana) {
+        $this->base_mana = $base_mana;
+    }
+
     // Setter pour $base_armor
     public function setBase_armor($base_armor) {
         $this->base_armor = $base_armor;

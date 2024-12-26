@@ -1,5 +1,5 @@
 <?php
-class Magicien extends ClassMagique{
+class Magicien extends Classe {
 
 }
 

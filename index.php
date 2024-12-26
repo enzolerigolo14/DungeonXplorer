@@ -76,7 +76,7 @@ $router = new Router('DungeonXplorer');
 $router->addRoute('', 'HomeController@index'); // Pour la racine
 $router->addRoute('home', 'HomeController@index');
 $router->addRoute('choixHero', 'ChoixHeroController@index');
-$router->addRoute('inscription', 'InscriptionController@index');
+//$router->addRoute('inscription', 'InscriptionController@index');
 $router->addRoute('chapter_view/{id}', 'ChapterController@show');
 $router->addRoute('creationGuerrier', 'CreationGuerrierController@index');
 $router->addRoute('creationMage', 'CreationMageController@index');
