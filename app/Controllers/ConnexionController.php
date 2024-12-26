@@ -23,7 +23,15 @@ class ConnexionController{
                     $idUser = $requeteIdUser->fetchColumn();
                     $_SESSION["userId"] = $idUser;
 
-                    header("Location: /DungeonXplorer/chapter_view/1");
+                    $requeteGetCurrentChapterId = $client->prepare("select chapter_id from quest
+                                                                            where hero_id = (
+                                                                            select hero_id from hero
+                                                                            where user_id = :id
+                                                                        );");
+                    $requeteGetCurrentChapterId->bindParam(':id', $idUser);
+                    $requeteGetCurrentChapterId->execute();
+                    $currentChapterId = $requeteGetCurrentChapterId->fetchColumn();
+                    header("Location: /DungeonXplorer/chapter_view/{$currentChapterId}");
                     exit;
                     // Redirection ou traitement ici
                 } else {

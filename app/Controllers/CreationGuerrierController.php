@@ -59,6 +59,15 @@ class CreationGuerrierController {
                 $mainRequete->bindParam(':xp', $xp);
                 $mainRequete->execute();
 
+                $requeteGetHerosId = $client->prepare("select id from hero where user_id = {$userId}");
+                $requeteGetHerosId->execute();
+                $hero_id = $requeteGetHerosId->fetchColumn();
+
+                $requeteInitialisationProgressionHeros = $client->prepare("INSERT INTO quest (hero_id, chapter_id) VALUES (:hero_id, :chapter_id)");
+                $requeteInitialisationProgressionHeros->bindParam(':hero_id', $hero_id);
+                $requeteInitialisationProgressionHeros->bindValue(':chapter_id', 1);
+                $requeteInitialisationProgressionHeros->execute();
+
                 header("Location: /DungeonXplorer/chapter_view/1");
             }
         }
