@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/DungeonXplorer/public/css/styles_character_choice.css">
+    <link rel="stylesheet" href="/DungeonXplorer/public/css/style_creation_hero.css">
     <title>Création de votre Guerrier</title>
 </head>
 <body>
