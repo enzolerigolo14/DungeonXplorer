@@ -1,6 +1,7 @@
 @font-face {
     font-family: 'Zonaix';
-    src: url('../../config/Zonaix.otf') format('opentype'); /* Format OpenType */
+    src: url('../fonts/Zonaix.otf') format('opentype');
+    format('opentype'); /* Format OpenType */
     font-weight: normal;
     font-style: normal;
 }

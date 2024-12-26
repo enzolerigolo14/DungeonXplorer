@@ -26,8 +26,10 @@ class ChapterController {
 
     public function show($id)
     {
-        $chapter = $this->getChapter($id);
         $client = databaseConnexion::getConnection();
+        $chapter = $this->getChapter($id);
+
+        $this->updateQuest($id, $client);
 
         $nbLinks = $this->getNbLinks($id, $client);
 
@@ -40,6 +42,20 @@ class ChapterController {
             header('HTTP/1.0 404 Not Found');
             echo "Chapitre non trouvé!";
         }
+    }
+
+    public function updateQuest($chapter_id, $client){
+
+        session_start();
+        $user_id = $_SESSION['userId'];
+        $requeteGetHerosId = $client->prepare("select id from hero where user_id = :id");
+        $requeteGetHerosId->bindParam(':id', $user_id);
+        $requeteGetHerosId->execute();
+        $hero_id = $requeteGetHerosId->fetchColumn();
+
+        $requeteUpdateQuest = $client->prepare("update quest set chapter_id = {$chapter_id} where hero_id = {$hero_id}");
+        $requeteUpdateQuest->execute();
+
     }
 
     public function getAllLinks($id, $client) : array
