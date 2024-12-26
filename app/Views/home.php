@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DungeonXplorer</title>
-    <link rel="stylesheet" href="/DungeonXplorer/public/css/styles.css">
+    <link rel="stylesheet" href="/DungeonXplorer/public/css/home_style.css">
 </head>
 <body>
 
@@ -17,7 +17,6 @@
         <button class="start-button" onclick="openLoginPopup()">Jouer</button>
     </div>
 
-    <!-- Popup de connexion -->
     <div id="loginPopup" class="popup">
         <div class="popup-content">
             <span class="close" onclick="closeLoginPopup()">&times;</span>
