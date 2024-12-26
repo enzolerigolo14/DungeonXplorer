@@ -16,8 +16,8 @@ body, html {
     background-color: #000;
     font-family: 'Zonaix', sans-serif;
     color: #fff; 
-    background: url('../images/fond_intro.png') no-repeat center,
-rgba(13,27,64,255) ;
+    background: url('../images/fond_intro.png') no-repeat center,rgba(13,27,64,255) ;
+
 }
 
 .hero-section {
@@ -120,4 +120,15 @@ h1 {
     color: #fff;
     cursor: pointer;
 }
+/* Responsivité */
+@media (max-width: 768px) {
+    .image-container {
+        flex-direction: column; /* Les images s'affichent en colonne sur les écrans moyens */
+        gap: 20px;
+    }
 
+    .image-item {
+        width: 80%; /* Les images prendront 80% de la largeur sur les écrans plus petits */
+        margin: 0 auto; /* Centrer les images sur les petits écrans */
+    }
+}
