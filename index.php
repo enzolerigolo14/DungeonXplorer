@@ -85,7 +85,6 @@ $router->addRoute('Voleur', 'CreationVoleurController@index');
 $router->addRoute('creationVoleur', 'CreationVoleurController@creerVoleur');
 $router->addRoute('creationGuerrier', 'CreationGuerrierController@creerGuerrier');
 $router->addRoute('creationMage', 'CreationMageController@creerMage');
-//$router->addRoute('chapter_view/deconnexion', 'ChapterController@deconnexion');
 
 // Appel de la méthode route
 $router->route(trim($_SERVER['REQUEST_URI'], '/'));

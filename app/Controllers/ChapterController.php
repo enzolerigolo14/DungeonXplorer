@@ -2,6 +2,9 @@
 
 require_once 'app/models/NosClasses/Chapter.php';
 require_once 'app/models/NosClasses/Links.php';
+require_once 'app/models/NosClasses/Monster.php';
+require_once 'app/models/NosClasses/Encounter.php';
+require_once 'app/models/NosClasses/Hero.php';
 require_once __DIR__ . '/../../config/databaseConnexion.php';
 class ChapterController {
 
@@ -40,12 +43,20 @@ class ChapterController {
 
         $nbEncounter = $this->getNbEncounter($id, $client);
 
+        if($nbEncounter != 0){
+            $monsterToFight = $this->getMonsterToFight($id, $client);
+            $heroToUse = $this->getHero($client);
+            $classHeroName = $this->getNameClassHero($client, $heroToUse);
+            $idChapitreWin = $this->getChapterWin($id, $client);
+            $idChapitreDefeat = $this->getChapterDefeat($id, $client);
+        }
+
         if ($chapter) {
             include 'app/views/chapter_view.php';// Charge la vue pour le chapitre
 
         } else if($id == "deconnexion") {
-            /*session_start();
-            session_destroy();*/
+            session_start();
+            session_destroy();
             echo 'Deconnexion !!!';
 
             header("Location: /DungeonXplorer/home");
@@ -55,6 +66,65 @@ class ChapterController {
             echo "Chapitre non trouvé!";
             header('HTTP/1.0 404 Not Found');
         }
+    }
+
+    public function getChapterWin($chapter_id, $client) : int{
+        $requeteGetChapterWin = $client->prepare("select next_chapter_id from links where upper(description) = upper('VICTOIRE') and chapter_id = :chapter_id;");
+        $requeteGetChapterWin->bindParam(':chapter_id', $chapter_id);
+        $requeteGetChapterWin->execute();
+        $idChapitre = $requeteGetChapterWin->fetchColumn();
+
+        return $idChapitre;
+    }
+
+    public function getChapterDefeat($chapter_id, $client) : int{
+        $requeteGetChapterDefeat = $client->prepare("select next_chapter_id from links where upper(description) = upper('DEFAITE') and chapter_id = :chapter_id;");
+        $requeteGetChapterDefeat->bindParam(':chapter_id', $chapter_id);
+        $requeteGetChapterDefeat->execute();
+        $idChapitre = $requeteGetChapterDefeat->fetchColumn();
+
+        return $idChapitre;
+    }
+
+    public function getNameClassHero($client, $hero) : string{
+
+        $classIdHero = $hero->getClassId();
+        $requeteGetNameClassHeros = $client->prepare("select name from class where id  = :class_id;");
+        $requeteGetNameClassHeros->bindParam(':class_id', $classIdHero);
+        $requeteGetNameClassHeros->execute();
+        $nameClassHero = $requeteGetNameClassHeros->fetchColumn();
+
+        return $nameClassHero;
+    }
+
+    public function getHero($client) : Hero{
+
+        $user_id = $_SESSION['userId'];
+        $requeteGetHeroId = $client->prepare("select * from hero where user_id = :user_id");
+        $requeteGetHeroId->bindParam(':user_id', $user_id);
+        $requeteGetHeroId->execute();
+        $getHero = $requeteGetHeroId->fetch();
+        $hero = new Hero();
+        $hero->hydrate($getHero);
+
+        return $hero;
+    }
+
+    public function getMonsterToFight($id, $client) : Monster{
+
+        $requeteGetMonsterId = $client->prepare("select monster_id from encounter where chapter_id = :ch_id;");
+        $requeteGetMonsterId->bindParam(':ch_id', $id);
+        $requeteGetMonsterId->execute();
+        $monster_id = $requeteGetMonsterId->fetchColumn();
+
+        $requeteGetMonster = $client->prepare("select * from monster where id = :monster_id;");
+        $requeteGetMonster->bindParam(':monster_id', $monster_id);
+        $requeteGetMonster->execute();
+        $getmonster = $requeteGetMonster->fetch();
+        $monster = new Monster();
+        $monster->hydrate($getmonster);
+
+        return $monster;
     }
 
     public function getNbEncounter($chapter_id, $client) : int{

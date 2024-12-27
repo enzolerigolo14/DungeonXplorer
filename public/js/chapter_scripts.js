@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const titleElement = document.getElementById('chapter-title');
     const textElement = document.getElementById('chapter-text');
-    const choiceContainer = document.getElementById('button-container');
+    const choiceContainer = document.getElementById('buttonLinks-container');
     const eventContainer = document.getElementById('event-container');
+    const fightContainer = document.getElementById('combatContainer');
     
     // faut les recup dans la bdd normalement celles ci
     const titleText = titleElement.textContent;
@@ -28,10 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
             i++;
             if (i >= chapterText.length) {
                 clearInterval(interval); // Stop l'animation
-                
+
+                if(fightContainer){
+                    fightContainer.style.display = 'block';
+                }
                 setTimeout(() => {
-                    choiceContainer.style.display = 'block'; // Montre les choix
-                }, 600);
+                    choiceContainer.style.display = 'flex';
+                }, 600)
                 if (eventContainer) eventContainer.style.display = 'block'; // Montre l'événement
             }
         }, typingDelay);

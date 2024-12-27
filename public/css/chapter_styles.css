@@ -1,17 +1,18 @@
-@font-face {
+/*@font-face {
     font-family: 'Zonaix';
     src: url('../fonts/Zonaix.otf') format('opentype');
-    format('opentype'); /* Format OpenType */
+    format('opentype'); /* Format OpenType
     font-weight: normal;
     font-style: normal;
-}
+}*/
 
 body, html {
     margin: 0;
     padding: 0;
+    height: 100%;
     background-color: #0D1B40;
     color: #fff;
-    font-family: 'Zonaix', sans-serif;
+    font-family: 'arial', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,9 +48,16 @@ p {
     text-align: justify;
 }
 
+#container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
 #chapter-title {
     position: absolute;
-    top: 50%; /* Centre verticalement */
+    top: 40%; /* Centre verticalement */
     left: 50%; /* Centre horizontalement */
     transform: translate(-50%, -50%); /* Centre totalement */
     font-size: 2.5rem;
@@ -59,12 +67,8 @@ p {
 }
 
 #textContainer {
-    position: absolute;
-    top: 50%; /* Centre verticalement */
-    left: 50%; /* Centre horizontalement */
-    transform: translate(-50%, -50%); /* Centre totalement */
     width: 1400px; /* Largeur du conteneur */
-    height: 400px; /* Hauteur fixe du conteneur */
+    height: fit-content;
     word-wrap: break-word; /* Permet aux mots longs de revenir à la ligne */
     padding: 30px; /* Espacement intérieur */
     color: #fff; /* Couleur du texte */
@@ -90,7 +94,7 @@ p {
     background-color: #E03E00;
 }
 
-.buttonEvent-container {
+#buttonLinks-container, #buttonLinksFight-container{
     position: fixed; /* Si le conteneur doit rester en place */
     bottom: 20px;
     right: 20px;

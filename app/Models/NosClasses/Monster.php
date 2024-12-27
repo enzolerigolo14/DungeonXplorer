@@ -16,11 +16,11 @@ class Monster{
             $method = 'set'.ucfirst($key);
 
             if(method_exists($this, $method)){
-                echo '<br>';
+                //echo '<br>';
                 $this->$method($value); 
-                echo 'Nom méthode : '.$method.'('.$value.')<br>';
+                //echo 'Nom méthode : '.$method.'('.$value.')<br>';
             } else {
-                echo 'Ca existe pas : Nom méthode : '.$method.'('.$value.')<br>';
+                //echo 'Ca existe pas : Nom méthode : '.$method.'('.$value.')<br>';
             }
         }
     }
@@ -73,6 +73,86 @@ class Monster{
     // Setter pour l'armure
     public function setArmor($armor) {
         $this->armor = $armor;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPv()
+    {
+        return $this->pv;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMana()
+    {
+        return $this->mana;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInitiative()
+    {
+        return $this->initiative;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStrength()
+    {
+        return $this->strength;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAttack()
+    {
+        return $this->attack;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLootId()
+    {
+        return $this->loot_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getXp()
+    {
+        return $this->xp;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getArmor()
+    {
+        return $this->armor;
     }
 }
 

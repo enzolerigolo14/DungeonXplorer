@@ -23,11 +23,12 @@ class Hero {
             $method = 'set'.ucfirst($key);
 
             if(method_exists($this, $method)){
-                echo '<br>';
+                //echo '<br>';
                 $this->$method($value); 
-                echo 'Nom méthode : '.$method.'('.$value.')<br>';
+                //echo 'Nom méthode : '.$method.'('.$value.')<br>';
             } else {
-                echo 'Ca existe pas : Nom méthode : '.$method.'('.$value.')<br>';
+                /*echo '<br>';
+                echo 'Ca existe pas : Nom méthode : '.$method.'('.$value.')<br>';*/
             }
         }
     }
@@ -39,13 +40,13 @@ class Hero {
     public function setName($name) { $this->name = $name; }
 
     // Setter for $class_id
-    public function setClassId($class_id) { $this->class_id = $class_id; }
+    public function  setClass_id($class_id) { $this->class_id = $class_id; }
 
     // Setter for $user_id
-    public function setUserId($user_id) { $this->user_id = $user_id; }
+    public function setUser_id($user_id) { $this->user_id = $user_id; }
 
     // Setter for $link_image
-    public function setLinkImage($link_image) { $this->link_image = $link_image; }
+    public function setImage($link_image) { $this->link_image = $link_image; }
 
     // Setter for $biography
     public function setBiography($biography) { $this->biography = $biography; }
@@ -66,19 +67,144 @@ class Hero {
     public function setArmor($armor) { $this->armor = $armor; }
 
     // Setter for $primary_weapon
-    public function setPrimaryWeapon($primary_weapon) { $this->primary_weapon = $primary_weapon; }
+    public function setPrimary_weapon($primary_weapon) { $this->primary_weapon = $primary_weapon; }
 
     // Setter for $secondary_item_id
-    public function setSecondaryItemId($secondary_item_id) { $this->secondary_item_id = $secondary_item_id; }
-
-    // Setter for $spell_id
-    public function setSpellId($spell_id) { $this->spell_id = $spell_id; }
+    public function setSecondary_item_id($secondary_item_id) { $this->secondary_item_id = $secondary_item_id; }
 
     // Setter for $xp
     public function setXp($xp) { $this->xp = $xp; }
 
     // Setter for $current_level
-    public function setCurrentLevel($current_level) { $this->current_level = $current_level; }
+    public function setCurrent_level($current_level) { $this->current_level = $current_level; }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getClassId()
+    {
+        return $this->class_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUserId()
+    {
+        return $this->user_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLinkImage()
+    {
+        return $this->link_image;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBiography()
+    {
+        return $this->biography;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPv()
+    {
+        return $this->pv;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMana()
+    {
+        return $this->mana;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStrength()
+    {
+        return $this->strength;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInitiative()
+    {
+        return $this->initiative;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getArmor()
+    {
+        return $this->armor;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrimaryWeapon()
+    {
+        return $this->primary_weapon;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSecondaryItemId()
+    {
+        return $this->secondary_item_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSpellId()
+    {
+        return $this->spell_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getXp()
+    {
+        return $this->xp;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCurrentLevel()
+    {
+        return $this->current_level;
+    }
 
 }
 ?>
