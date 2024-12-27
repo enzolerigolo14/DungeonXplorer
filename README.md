@@ -69,10 +69,10 @@ DungeonXplorer est une application web de type "livre dont vous êtes le héros"
 ## Configuration de la base de données
 
 1. **Importez le fichier SQL** :  
-   - Localisez le fichier SQL situé dans `config/database.sql`.  
+   - Localisez le fichier SQL situé dans `config/databaseConnexion.sql`.  
    - Importez ce fichier dans votre base de données MySQL à l'aide d'un outil comme phpMyAdmin ou via le terminal MySQL :  
      ```bash
-     mysql -u [utilisateur] -p [nom_de_la_base] < config/database.sql
+     mysql -u [utilisateur] -p [nom_de_la_base] < config/databaseConnexion.sql
      ```
 
 2. **Modifiez les paramètres de connexion** :  
