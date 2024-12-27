@@ -40,6 +40,29 @@ DungeonXplorer est une application web de type "livre dont vous êtes le héros"
      
 ---
 
+## Structure du projet
+
+Voici une vue simplifiée de la structure du projet :
+
+DungeonXplorer/
+├── app/
+│   ├── controllers/
+│   ├── models/
+│   └── views/
+├── config/
+├── public/
+│   ├── css/
+│   ├── fonts/
+│   ├── images/
+│   └── js/
+├── .env
+├── .gitignore
+├── .htaccess
+├── autoload.php
+├── index.php
+└── README.md
+
+---
 
 ## Technologies utilisées
 
