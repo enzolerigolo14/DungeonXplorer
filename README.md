@@ -45,25 +45,25 @@ DungeonXplorer est une application web de type "livre dont vous êtes le héros"
 Voici une vue simplifiée de la structure du projet :
 
 # Structure du projet DungeonXplorer
-"""
+
 DungeonXplorer/  
 ├── app/  
-│   ├── controllers/   # Contient les contrôleurs de l'application <br>
-│   ├── models/        # Contient les modèles de l'application
-│   └── views/         # Contient les vues (templates HTML, etc.)
-├── config/            # Fichiers de configuration (base de données, etc.)
-├── public/            # Contient les fichiers accessibles publiquement
-│   ├── css/           # Feuilles de style CSS
-│   ├── fonts/         # Polices utilisées dans le projet
-│   ├── images/        # Images utilisées dans le projet
-│   └── js/            # Scripts JavaScript
-├── .env               # Fichier d'environnement (configuration sensible)
-├── .gitignore         # Fichier pour exclure des fichiers/dossiers du contrôle de version
-├── .htaccess          # Fichier de configuration pour le serveur Apache
-├── autoload.php       # Script pour l'autoloading des classes
-├── index.php          # Point d'entrée principal de l'application
-└── README.md          # Documentation du projet
-"""
+│   ├── controllers/   # Contient les contrôleurs de l'application  
+│   ├── models/        # Contient les modèles de l'application  
+│   └── views/         # Contient les vues (templates HTML, etc.)  
+├── config/            # Fichiers de configuration (base de données, etc.)  
+├── public/            # Contient les fichiers accessibles publiquement  
+│   ├── css/           # Feuilles de style CSS  
+│   ├── fonts/         # Polices utilisées dans le projet  
+│   ├── images/        # Images utilisées dans le projet  
+│   └── js/            # Scripts JavaScript  
+├── .env               # Fichier d'environnement (configuration sensible)  
+├── .gitignore         # Fichier pour exclure des fichiers/dossiers du contrôle de version  
+├── .htaccess          # Fichier de configuration pour le serveur Apache  
+├── autoload.php       # Script pour l'autoloading des classes  
+├── index.php          # Point d'entrée principal de l'application  
+└── README.md          # Documentation du projet  
+
 
 ---
 
