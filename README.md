@@ -26,11 +26,11 @@ DungeonXplorer est une application web de type "livre dont vous êtes le héros"
 
 4. **Statistiques et progression :**
    - Consultez les caractéristiques de votre personnage en temps réel.
-   - Suivez vos progrès, équipements collectés et étapes franchies.
+   - Suivez vos progrès et objets collectés.
 
 5. **Système de combat :**
    - Affrontez des monstres avec des mécaniques de combat simples et dynamiques.
-   - Gestion des dégâts, inventaire et bonus de classe.
+   - Gestion des dégâts magique/physique selon classe.
 
 ---
 
@@ -38,10 +38,7 @@ DungeonXplorer est une application web de type "livre dont vous êtes le héros"
 1. **Gestion des joueurs :**
    - Liste des comptes utilisateurs.
    - Suppression des comptes indésirables.
-
-2. **Modération et contenu :**
-   - Ajout, modification ou suppression de contenus spécifiques (scénarios, monstres, objets, etc.).
-
+     
 ---
 
 ## Structure du projet
