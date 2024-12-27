@@ -41,7 +41,4 @@ DungeonXplorer est une application web de type "livre dont vous êtes le héros"
      
 ---
 
-## Structure du projet
-
-Voici une vue simplifiée de la structure du projet :
 
