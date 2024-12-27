@@ -48,8 +48,8 @@ Voici une vue simplifiée de la structure du projet :
 
 DungeonXplorer/  
 ├── app/  
-│   ├── controllers/   # Contient les contrôleurs de l'application  
-│   ├── models/        # Contient les modèles de l'application  
+│   ├── controllers/   # Contient les contrôleurs de l'application    
+│   ├── models/        # Contient les modèles de l'application    
 │   └── views/         # Contient les vues (templates HTML, etc.)  
 ├── config/            # Fichiers de configuration (base de données, etc.)  
 ├── public/            # Contient les fichiers accessibles publiquement  
