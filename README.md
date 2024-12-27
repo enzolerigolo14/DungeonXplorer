@@ -42,3 +42,30 @@ DungeonXplorer est une application web de type "livre dont vous êtes le héros"
 ---
 
 
+
+---
+
+## Technologies utilisées
+
+- **Back-end** : PHP 8 avec PDO pour la gestion des interactions avec MySQL.
+- **Base de données** : MySQL (gestion des utilisateurs, personnages, et progression).
+- **Front-end** : HTML5, CSS3, JavaScript.
+- **Frameworks** :
+  - Bootstrap pour la mise en page.
+  - FontAwesome pour les icônes.
+- **Gestion de version** : Git et GitHub.
+
+---
+
+## Installation
+
+### Pré-requis :
+- Serveur PHP (par exemple : XAMPP, WAMP ou LAMP).
+- MySQL installé et configuré.
+- Accès au terminal pour exécuter des commandes Git.
+
+### Étapes :
+1. Clonez ce dépôt :
+   ```bash
+   git clone https://github.com/votre-utilisateur/DungeonXplorer.git
+   cd DungeonXplorer
