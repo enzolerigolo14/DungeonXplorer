@@ -94,6 +94,18 @@ class HomeController {
                     $requeteGetCurrentChapterId->bindParam(':id', $idUser);
                     $requeteGetCurrentChapterId->execute();
                     $currentChapterId = $requeteGetCurrentChapterId->fetchColumn();
+
+                    $requeteAdmin = $client->prepare('select admin from user where id = :user_id;');
+                    $requeteAdmin->bindParam(':user_id', $idUser);
+                    $requeteAdmin->execute();
+                    $admin = $requeteAdmin->fetchColumn();
+
+                    if($admin == 1){
+                        $_SESSION["admin"] = true;
+                    } else {
+                        $_SESSION["admin"] = false;
+                    }
+
                     header("Location: /DungeonXplorer/chapter_view/{$currentChapterId}");
                     exit;
                 } else {
