@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once 'app/models/NosClasses/Chapter.php';
 require_once 'app/models/NosClasses/Links.php';
 require_once 'app/models/NosClasses/Monster.php';
@@ -44,22 +44,29 @@ class ChapterController {
         $nbEncounter = $this->getNbEncounter($id, $client);
 
         if($nbEncounter != 0){
-            $monsterToFight = $this->getMonsterToFight($id, $client);
-            $heroToUse = $this->getHero($client);
-            $classHeroName = $this->getNameClassHero($client, $heroToUse);
-            $idChapitreWin = $this->getChapterWin($id, $client);
-            $idChapitreDefeat = $this->getChapterDefeat($id, $client);
+            $_SESSION['chapterId'] = $id;
         }
 
         if ($chapter) {
-            include 'app/views/chapter_view.php';// Charge la vue pour le chapitre
+            if($id == 24){
+                include 'app/views/game-over.php';
+            } else {
+                include 'app/views/chapter_view.php';// Charge la vue pour le chapitre
+            }
 
         } else if($id == "deconnexion") {
-            session_start();
             session_destroy();
             echo 'Deconnexion !!!';
 
             header("Location: /DungeonXplorer/home");
+        } else if($id == "combat") {
+            $fightId = $_SESSION['chapterId'];
+            $monsterToFight = $this->getMonsterToFight($fightId, $client);
+            $heroToUse = $this->getHero($client);
+            $classHeroName = $this->getNameClassHero($client, $heroToUse);
+            $idChapitreWin = $this->getChapterWin($fightId, $client);
+            $idChapitreDefeat = $this->getChapterDefeat($fightId, $client);
+            include 'app/views/combat.php';
         }
         else {
             // Si le chapitre n'existe pas, redirige vers un chapitre par défaut ou affiche une erreur
@@ -136,8 +143,6 @@ class ChapterController {
     }
 
     public function updateQuest($chapter_id, $client){
-
-        session_start();
         $user_id = $_SESSION['userId'];
         $requeteGetHerosId = $client->prepare("select id from hero where user_id = :id");
         $requeteGetHerosId->bindParam(':id', $user_id);
@@ -182,7 +187,7 @@ class ChapterController {
                 return $chapter;
             }
         }
-        echo 'chapitre introuvable !';
+        //echo 'chapitre introuvable !';
         return null; // Chapitre non trouvé
     }
 

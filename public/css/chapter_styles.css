@@ -9,71 +9,75 @@
 body, html {
     margin: 0;
     padding: 0;
-    height: 100%;
     background-color: #0D1B40;
     color: #fff;
     font-family: 'Zonaix', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center; /* Cela centre le texte horizontalement */
+    text-align: justify;
     overflow-y: auto; /* Affiche la barre de défilement verticale quand le texte dépasse */
+    height: 100vh;
+    width: 100vw;
+    position: relative;
     overflow-x: hidden;
 }
 
-h1 {
-    font-size: 5rem;
-    text-shadow: 0 4px 10px rgba(255, 69, 0, 0.6); /* Ombre rouge/orange autour du titre */
-    color: #FF4500; /* Couleur du titre (rouge-orange) */
-    margin-bottom: 20px;
-    white-space: nowrap;
-}
-
-p {
-    line-height: 1.8;
-    color: #fff; /* Texte en blanc pour le chapitre */
-    max-width: 80%;
-    margin: 0 auto;
-    transition: opacity 1s ease-in-out; /* Transition du texte */
-}
-
-.chapter-container {
-    text-align: center;
-    max-width: 80%;
-    width: 100%;
-}
-
-#chapter-text {
-    transition: opacity 1s ease-in-out;
-    text-align: justify;
-}
-
-#container {
+#container-image-text{
     display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
+    flex-direction: row;
 }
 
-#chapter-title {
-    position: absolute;
-    top: 40%; /* Centre verticalement */
-    left: 50%; /* Centre horizontalement */
-    transform: translate(-50%, -50%); /* Centre totalement */
-    font-size: 2.5rem;
-    text-align: center;
-    opacity: 0; /* Commence invisible */
-    animation: fade-in-out 3s ease-in-out forwards;
+#chapter-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
 }
 
 #textContainer {
-    width: 1400px; /* Largeur du conteneur */
-    height: fit-content;
-    word-wrap: break-word; /* Permet aux mots longs de revenir à la ligne */
-    padding: 30px; /* Espacement intérieur */
-    color: #fff; /* Couleur du texte */
-    font-size: 15px; /* Taille du texte */
-    margin: 20px auto; /* Centre le texte */
+    flex: 3; /* Le texte prend plus de place */
+    padding: 30px;
+    font-size: 15px;
+    color: #fff;
+    line-height: 1.8;
+    word-wrap: break-word;
+    max-width: 70%; /* Limite la largeur du texte */
+    margin-right: 20px; /* Espacement avec l'image */
+}
+
+#chapter-title {
+    position: absolute; /* Positionnement absolu */
+    top: 50%; /* Centre verticalement */
+    left: 50%; /* Centre horizontalement */
+    transform: translate(-50%, -50%); /* Centre totalement */
+    font-size: 2.5rem;
+    color: #FF4500;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 10px rgba(255, 69, 0, 0.6); /* Ombre rouge/orange autour du titre */
+    white-space: nowrap;
+    opacity: 0; /* Initialement invisible */
+    animation: fade-in 1s ease-in-out forwards; /* Animation pour faire apparaître */
+}
+
+#image-container {
+    display: flex;
+    flex-direction: row;
+    flex: 1; /* L'image prendra un espace réduit */
+    max-width: 30%; /* Limite la largeur de l'image */
+    padding: 10px;
+    opacity: 0; /* Initialement invisible */
+    transition: opacity 2s ease-in-out; /* Animation pour fade-in */
+}
+
+#image-container img {
+    width: 100%; /* L'image s'ajuste à la largeur de son conteneur */
+    height: auto; /* L'image garde ses proportions */
+    border-radius: 10px; /* Ajout d'un arrondi si nécessaire */
+    object-fit: cover; /* L'image est coupée si nécessaire pour remplir l'espace */
 }
 
 .event-button {

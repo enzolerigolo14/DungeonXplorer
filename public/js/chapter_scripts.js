@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const choiceContainer = document.getElementById('buttonLinks-container');
     const eventContainer = document.getElementById('event-container');
     const fightContainer = document.getElementById('combatContainer');
+    const imageContainer = document.getElementById('image-container'); // Référence à l'élément image
     
     // faut les recup dans la bdd normalement celles ci
     const titleText = titleElement.textContent;
@@ -22,7 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
         titleElement.style.display = 'none'; // Cache le titre après l'affichage
         textElement.style.display = 'block'; // Montre le texte principal
         let i = 0;
-
+        imageContainer.style.opacity = 1; // Rends l'image visible
+        imageContainer.style.transition = 'opacity 2s ease-in-out';
         // Effet d'écriture lettre par lettre
         const interval = setInterval(() => {
             textElement.textContent += chapterText[i];

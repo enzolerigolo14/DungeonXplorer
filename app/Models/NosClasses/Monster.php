@@ -10,6 +10,7 @@ class Monster{
     private $loot_id;
     private $xp;
     private $armor;
+    private $image;
 
     public function hydrate(array $donnes){
         foreach($donnes as $key => $value){
@@ -73,6 +74,10 @@ class Monster{
     // Setter pour l'armure
     public function setArmor($armor) {
         $this->armor = $armor;
+    }
+
+    public function setImage($image){
+        $this->image = $image;
     }
 
     /**
@@ -154,6 +159,16 @@ class Monster{
     {
         return $this->armor;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+
 }
 
 ?>
