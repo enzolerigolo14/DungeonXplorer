@@ -45,7 +45,7 @@ DungeonXplorer est une application web de type "livre dont vous êtes le héros"
 Voici une vue simplifiée de la structure du projet :
 
 # Structure du projet DungeonXplorer
-
+"""
 DungeonXplorer/
 ├── app/
 │   ├── controllers/   # Contient les contrôleurs de l'application
@@ -63,7 +63,7 @@ DungeonXplorer/
 ├── autoload.php       # Script pour l'autoloading des classes
 ├── index.php          # Point d'entrée principal de l'application
 └── README.md          # Documentation du projet
-
+"""
 
 ---
 
