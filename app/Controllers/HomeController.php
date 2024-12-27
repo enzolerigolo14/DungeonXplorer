@@ -41,6 +41,7 @@ class HomeController {
                         $requeteIdUser->execute();
                         $idUser = $requeteIdUser->fetchColumn();
                         $_SESSION["userId"] = $idUser;
+                        $_SESSION["admin"] = false;
 
                         header("Location: /DungeonXplorer/choixHero");
                         //require_once "app/views/choixHero.php";
@@ -106,6 +107,7 @@ class HomeController {
                         $_SESSION["admin"] = false;
                     }
 
+                    echo $idUser;
                     header("Location: /DungeonXplorer/chapter_view/{$currentChapterId}");
                     exit;
                 } else {

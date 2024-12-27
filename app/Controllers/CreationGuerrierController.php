@@ -32,7 +32,7 @@ class CreationGuerrierController {
                 $class_id = $guerrier->getId();
                 $userId = $_SESSION['userId'];
                 $pv = $guerrier->getBasePv();
-                $mana = $guerrier->getBaseMana();
+                $mana = 0;
                 $strength = $guerrier->getStrength();
                 $initiative = $guerrier->getInitiative();
                 $armor = $guerrier->getBaseArmor();

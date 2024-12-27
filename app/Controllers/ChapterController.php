@@ -43,6 +43,10 @@ class ChapterController {
 
         $nbEncounter = $this->getNbEncounter($id, $client);
 
+        $hero = $this->getHero($client);
+        $idHero = $hero->getId();
+        $primaryWeaponName = $this->getPrimaryWeapon($client, $idHero);
+
         if($nbEncounter != 0){
             $_SESSION['chapterId'] = $id;
         }
@@ -55,24 +59,62 @@ class ChapterController {
             }
 
         } else if($id == "deconnexion") {
+            session_start();
             session_destroy();
-            echo 'Deconnexion !!!';
+            session_unset();
 
             header("Location: /DungeonXplorer/home");
         } else if($id == "combat") {
+
             $fightId = $_SESSION['chapterId'];
             $monsterToFight = $this->getMonsterToFight($fightId, $client);
             $heroToUse = $this->getHero($client);
             $classHeroName = $this->getNameClassHero($client, $heroToUse);
             $idChapitreWin = $this->getChapterWin($fightId, $client);
             $idChapitreDefeat = $this->getChapterDefeat($fightId, $client);
+
             include 'app/views/combat.php';
-        }
-        else {
+
+        } else if($id == "suppression") {
+
+            $userId = $_SESSION['userId'];
+            $heroToSupp = $this->getHero($client);
+            $idHero = $heroToSupp->getId();
+            $this->suppUser($client, $id, $userId, $idHero);
+
+            header('Location: /DungeonXplorer/home');
+
+        } else if($id == "admin"){
+            header("Location: /DungeonXplorer/admin");
+        } else {
             // Si le chapitre n'existe pas, redirige vers un chapitre par défaut ou affiche une erreur
             echo "Chapitre non trouvé!";
             header('HTTP/1.0 404 Not Found');
         }
+    }
+
+    public function getPrimaryWeapon($client, $hero_id) : string{
+
+        $requeteGetPrimaryWeapon = $client->prepare('select we.name from weapons we join hero he on we.id = he.primary_weapon where he.id = :hero_id');
+        $requeteGetPrimaryWeapon->bindParam('hero_id', $hero_id);
+        $requeteGetPrimaryWeapon->execute();
+        $nomArme = $requeteGetPrimaryWeapon->fetchColumn();
+        return $nomArme;
+
+    }
+
+    public function suppUser($client, $chapter_id, $user_id, $hero_id){
+        $requeteSuppDansQuete = $client->prepare("DELETE from quest where hero_id = :hero_id;");
+        $requeteSuppDansQuete->bindParam(":hero_id", $hero_id);
+        $requeteSuppDansQuete->execute();
+
+        $requeteSuppDansHero = $client->prepare("DELETE from hero where user_id = :user_id;");
+        $requeteSuppDansHero->bindParam(":user_id", $user_id);
+        $requeteSuppDansHero->execute();
+
+        $requeteSuppression = $client->prepare("DELETE FROM user WHERE id = :user_id");
+        $requeteSuppression->bindParam(':user_id', $user_id);
+        $requeteSuppression->execute();
     }
 
     public function getChapterWin($chapter_id, $client) : int{

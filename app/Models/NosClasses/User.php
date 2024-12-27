@@ -1,5 +1,5 @@
 <?php
-class TypeBonus {
+class User {
     private $id;
     private $nom;
     private $mdp;
@@ -10,11 +10,11 @@ class TypeBonus {
             $method = 'set'.ucfirst($key);
 
             if(method_exists($this, $method)){
-                echo '<br>';
+                //echo '<br>';
                 $this->$method($value); 
-                echo 'Nom méthode : '.$method.'('.$value.')<br>';
+                //echo 'Nom méthode : '.$method.'('.$value.')<br>';
             } else {
-                echo 'Ca existe pas : Nom méthode : '.$method.'('.$value.')<br>';
+                //echo 'Ca existe pas : Nom méthode : '.$method.'('.$value.')<br>';
             }
         }
     }
@@ -37,5 +37,38 @@ class TypeBonus {
     public function setAdmin($admin) {
         $this->admin = $admin;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMdp()
+    {
+        return $this->mdp;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdmin()
+    {
+        return $this->admin;
+    }
+
 }
 ?>

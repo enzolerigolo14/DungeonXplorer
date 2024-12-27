@@ -14,9 +14,49 @@ $chapter = $chapterController->getChapter($id);
     <link rel="stylesheet" href="/DungeonXplorer/public/css/chapter_styles.css">
 </head>
 <body>
-    <div class="buttonNavbar-container">
+
+<!--<div class="buttonNavbar-container">
         <button class="deco-button"><a href="deconnexion">Se déconnecter</a></button>
+    </div>-->
+
+    <button class="open-popup-btn" id="inventory-button" onclick="openPopup()">
+        <img id="img_inventaire"src="/DungeonXplorer/public/images/inventaire.webp" alt="Icone d'inventaire">
+    </button>
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup">
+            <h2>Profil</h2>
+            <div>
+                <p class="phppopup"> Nom : <?php echo $hero->getName()?> </p>
+                <img id="img_classe" src= <?php echo $hero->getLinkImage()?>>
+                <p class="phppopup"> Pv : <?php echo $hero->getPv()?> </p>
+                <p class="phppopup"> Strength : <?php echo $hero->getStrength()?> </p>
+                <p class="phppopup"> Armure : <?php echo $hero->getArmor()?> </p>
+                <p class="phppopup"> Initiative : <?php echo $hero->getInitiative()?> </p>
+                <p class="phppopup"> Niveau : <?php echo $hero->getCurrentLevel()?> </p>
+                <p class="phppopup"> Arme principale : <?php echo $primaryWeaponName ?></p>
+            </div>
+            <button onclick="closePopup()">Fermer</button>
+        </div>
     </div>
+
+    <button id="settings-btn" class="settings-btn">⚙️</button>
+
+    <div id="settings-popup" class="settings-popup">
+        <div class="popup-content">
+            <span id="close-btn" class="close-btn">&times;</span>
+            <h2>Paramètres</h2>
+            <ul>
+                <li><button id="logout-btn"><a href="deconnexion">Se déconnecter</a></button></li>
+                <li><button id="delete-account-btn">Supprimer mon compte</button></li>
+                <?php
+                    if($_SESSION['admin']){
+                        echo '<li><button id="admin-btn">Admin</button></li>';
+                    }
+                ?>
+            </ul>
+        </div>
+    </div>
+
     <p id="textTemp" style="display: none"><?php echo $chapter->getContent(); ?></p>
     <div id="chapter-container">
         <h1 id="chapter-title">Chapitre <?php echo $chapter->getId(); ?> : <?php echo $chapter->getTitle(); ?></h1> <!-- Le titre s'affichera ici -->

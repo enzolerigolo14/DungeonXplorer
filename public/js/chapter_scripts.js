@@ -1,3 +1,14 @@
+const popuoverlay = document.getElementById('popupOverlay');
+
+function openPopup() {
+    popuoverlay.style.display = 'block';
+}
+
+// Fonction pour fermer le popup
+function closePopup() {
+    popuoverlay.style.display = 'none';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const titleElement = document.getElementById('chapter-title');
     const textElement = document.getElementById('chapter-text');
@@ -42,5 +53,56 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, typingDelay);
     }, pauseAfterTitle);
+
+    // Fonction pour rediriger vers une nouvelle page
+    function goToPage(page) {
+        window.location.href = page;
+    }
+
+
+    // Paramètres Popup
+    const settingsBtn = document.getElementById('settings-btn');
+    const settingsPopup = document.getElementById('settings-popup');
+    const closeBtn = document.getElementById('close-btn');
+    const logoutBtn = document.getElementById('logout-btn');
+    const deleteAccountBtn = document.getElementById('delete-account-btn');
+    const adminBtn = document.getElementById('admin-btn');
+
+    // Ouvrir la popup lorsqu'on clique sur le bouton "Paramètres"
+    settingsBtn.addEventListener('click', () => {
+        settingsPopup.style.display = 'flex';
+    });
+
+    // Fermer la popup lorsqu'on clique sur le bouton "X"
+    closeBtn.addEventListener('click', () => {
+        settingsPopup.style.display = 'none';
+    });
+
+    // Fermer la popup si on clique en dehors de la fenêtre
+    window.addEventListener('click', (event) => {
+        if (event.target === settingsPopup) {
+            settingsPopup.style.display = 'none';
+        }
+    });
+
+    // Simuler l'action de se déconnecter
+    logoutBtn.addEventListener('click', () => {
+        alert("Au plaisir de vous revoir aventuriers !");
+        //window.location.href = 'deconnexion';
+    });
+
+    // Simuler l'action de supprimer le compte
+    deleteAccountBtn.addEventListener('click', () => {
+        const confirmation = confirm("Êtes-vous sûr de vouloir supprimer votre compte ?");
+        if (confirmation) {
+            alert("Votre compte a été supprimé !");
+            window.location.href = 'suppression';
+        }
+    });
+
+    // Simuler l'accès aux paramètres Admin
+    adminBtn.addEventListener('click', () => {
+        window.location.href = "admin";
+    });
 
 });

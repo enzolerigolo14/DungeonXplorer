@@ -143,6 +143,251 @@ body, html {
     display: none; /* L'élément est caché par défaut */
 }
 
+/* Style pour le popup /
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    width: 300px;
+    text-align: center;
+  }
+
+  / Style pour le bouton */
+.popup button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.popup button:hover {
+    background-color: #45a049;
+}
+
+
+
+#inventory-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+
+    background-color:#0D1B40;
+    border: none;
+    border-radius: 200px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+
+
+#img_classe{
+    width: 100%; height: 100%; object-fit: contain;
+}
+
+#img_inventaire{
+    width: 100%; height: 100%; object-fit: contain; border-radius: 50px;
+}
+
+.popup, .phppopup{
+    color: #0D1B40;
+}
+
+.contenirInventaire{
+    width: 7%;
+    height: 7%;
+}
+
+
+/* Style pour le bouton ParamÃ¨tres */
+.settings-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+}
+
+.settings-btn:hover {
+    background-color: #FF4500;
+}
+
+.settings-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+
+.popup-content {
+    padding: 20px;
+    background-color: #444;
+    color:white;
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.popup-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.popup-content li {
+    margin: 10px 0;
+}
+
+
+.popup-content button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #FF4500;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.popup-content button:hover {
+    background-color: #e03e00;
+}
+
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #888;
+}
+
+.close-btn:hover {
+    color: #FF4500;
+}
+
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+/* Style pour le popup */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    width: 300px;
+    text-align: center;
+    background: grey;
+}
+
+/* Style pour le bouton */
+.popup button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.popup button:hover {
+    background-color: #45a049;
+}
+
+#inventory-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+
+    background-color:#0D1B40;
+    border: none;
+    border-radius: 200px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 6em;
+    height: 6em;
+}
+
+
+#img_classe{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+#img_inventaire{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50px;
+}
+
+.popup, .phppopup{
+    color: #0D1B40;
+}
+
+.contenirInventaire {
+    width: 7%;
+    height: 7%;
+}
+
+
 @keyframes fade-in {
     0% {
         opacity: 0; /* Début invisible */
