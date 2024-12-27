@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const chapterText = document.getElementById('textTemp').textContent;
     //
 
-    const typingDelay = 5;
+    const typingDelay = 50;
     const pauseAfterTitle = 3000;
 
 
