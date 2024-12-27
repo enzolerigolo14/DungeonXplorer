@@ -64,6 +64,7 @@ DungeonXplorer/
 ├── index.php          # Point d'entrée principal de l'application
 └── README.md          # Documentation du projet
 
+
 ---
 
 ## Technologies utilisées
