@@ -67,7 +67,7 @@ $chapter = $chapterController->getChapter($id);
                 const manaMaxMonstre = <?php echo $monsterToFight->getMana(); ?>;
                 let initiativeMonstre = Math.floor(Math.random() * 6) + 1 + <?php echo $monsterToFight->getInitiative(); ?>;
                 let defenseMonstre;
-                if(monstre==='voleur'){
+                if(monstre==='Voleur'){
                     defenseMonstre = Math.floor(<?php echo $monsterToFight->getInitiative(); ?> / 2);
                 }
                 else{
@@ -347,6 +347,11 @@ $chapter = $chapterController->getChapter($id);
 
 
     <?php
+    echo '<div id="buttonLinksFight-container" style="display: none">';
+        echo '<button id="LinkToWinChapter" class="event-button" style="display: none"><a href="'.$idChapitreWin.'">Continuer sur votre chemin</a></button>';
+        echo '<button id="LinkToDefeatChapter" class="event-button" style="display: none"><a href="'.$idChapitreDefeat.'">Continuer sur votre chemin</a></button>';
+    echo '</div>';
+
     if($nbEncounter == 0){
         echo '<div id="buttonLinks-container" style="display: none">';
         if($nbLinks != 0){

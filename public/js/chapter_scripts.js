@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const chapterText = document.getElementById('textTemp').textContent;
     //
 
-    const typingDelay = 50; 
-    const pauseAfterTitle = 2000;
+    const typingDelay = 5;
+    const pauseAfterTitle = 3000;
 
 
     // Affiche le titre avec un effet de fade-in

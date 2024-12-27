@@ -1,4 +1,4 @@
 <?php
-class Voleur extends Classe {
+class Voleur extends ClassMagique {
 }
 ?>
