@@ -46,9 +46,9 @@ Voici une vue simplifiée de la structure du projet :
 
 # Structure du projet DungeonXplorer
 """
-DungeonXplorer/
-├── app/
-│   ├── controllers/   # Contient les contrôleurs de l'application
+DungeonXplorer/  
+├── app/  
+│   ├── controllers/   # Contient les contrôleurs de l'application <br>
 │   ├── models/        # Contient les modèles de l'application
 │   └── views/         # Contient les vues (templates HTML, etc.)
 ├── config/            # Fichiers de configuration (base de données, etc.)
