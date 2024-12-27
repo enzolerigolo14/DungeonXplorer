@@ -36,8 +36,8 @@ DungeonXplorer est une application web de type "livre dont vous êtes le héros"
 ### Pour les administrateurs :
 1. **Gestion des joueurs :**
    - Liste des comptes utilisateurs.
-   - Suppression des comptes indésirables.
-     (/!\ voir adminMDP.md pour pouvoir faire les tests /!\)
+   - Suppression des comptes indésirables.  
+     ### (/!\ voir adminMDP.md pour pouvoir faire les tests /!\)
 ---
 
 ## Structure du projet
